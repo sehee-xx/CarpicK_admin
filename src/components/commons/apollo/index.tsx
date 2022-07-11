@@ -22,6 +22,7 @@ export default function ApolloSetting(props: any) {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
+    // credentials: "include",
   });
 
   const client = new ApolloClient({

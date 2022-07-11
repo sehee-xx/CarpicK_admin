@@ -28,9 +28,9 @@ export default function AdminLoginPage() {
         variables: { adminId: adminId, password: adminPw },
       });
       console.log(result);
-      // const accessToken = result.data.adminLogin.accessToken;
-      // setAccessToken(accessToken);
-      // localStorage.setItem("accessToken", accessToken);
+      const accessToken = result.data.adminLogin;
+      setAccessToken(accessToken);
+      localStorage.setItem("accessToken", accessToken);
       Modal.success({ content: "로그인 성공" });
       router.push("/admin");
     } catch (error: any) {

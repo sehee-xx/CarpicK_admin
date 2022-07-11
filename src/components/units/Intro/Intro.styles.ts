@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 `;
 export const Header = styled.div`
   width: 100%;
-  height: 150px;
+  height: 100px;
   background-color: #5d8bff;
 `;
 
@@ -17,13 +17,13 @@ export const HeaderContents = styled.div`
 export const Logo = styled.img`
   width: 100%;
   height: 100%;
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 100px;
+  max-height: 100px;
 `;
 export const HeaderText = styled.div`
   width: 50%;
-  height: 150px;
-  font-size: 60px;
+  height: 100px;
+  font-size: 30px;
   font-weight: 700;
   color: white;
   display: flex;
@@ -113,6 +113,7 @@ export const DownLoadButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const ButtonImage = styled.img`
