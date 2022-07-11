@@ -1,3 +1,9 @@
+import * as S from "./AdminDetail.styles";
+
 export default function AdminDetailUI() {
-  return <div>관리자 디테일 페이지</div>;
+  return (
+    <S.Wrapper>
+      <S.HeaderText>차량 상세 정보</S.HeaderText>
+    </S.Wrapper>
+  );
 }
