@@ -1,3 +1,9 @@
+import * as S from "./AdminCategory.styles";
+
 export default function AdminCategoryUI() {
-  return <div>관리자 카테고리 페이지</div>;
+  return (
+    <S.Wrapper>
+      <S.HeaderText>차종 추가</S.HeaderText>
+    </S.Wrapper>
+  );
 }

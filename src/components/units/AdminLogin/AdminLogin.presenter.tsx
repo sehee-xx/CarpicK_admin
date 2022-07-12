@@ -4,7 +4,7 @@ import { IAdminLoginUIUIProps } from "./AdminLogin.types";
 export default function AdminLoginUI(props: IAdminLoginUIUIProps) {
   return (
     <S.Wrapper>
-      <S.LoginText>관리자 로그인</S.LoginText>
+      <S.HeaderText>관리자 로그인</S.HeaderText>
       <S.LoginContents>
         <S.RowBox>
           <S.Text>ID: </S.Text>

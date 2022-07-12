@@ -71,28 +71,3 @@ export const Oil = styled.div`
 export const HighPath = styled.div`
   padding-left: 20px;
 `;
-
-export const ButtonBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-right: 50px;
-`;
-
-export const Approve = styled.button`
-  width: 150px;
-  height: 50px;
-  margin-bottom: 10px;
-  :hover {
-    background-color: #5d8bff;
-    cursor: pointer;
-  }
-`;
-
-export const Refuse = styled.button`
-  width: 150px;
-  height: 50px;
-  :hover {
-    background-color: #5d8bff;
-    cursor: pointer;
-  }
-`;

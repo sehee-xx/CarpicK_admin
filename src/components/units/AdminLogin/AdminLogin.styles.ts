@@ -10,16 +10,17 @@ export const Wrapper = styled.div`
   padding-bottom: 30px;
 `;
 
-export const LoginText = styled.div`
-  font-size: 25px;
+export const HeaderText = styled.div`
+  width: 100%;
+  height: 100px;
+  font-size: 40px;
   font-weight: 700;
-  height: 50px;
-  color: #fff;
   background-color: #5d8bff;
+  color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 `;
 
 export const LoginContents = styled.div`
@@ -27,10 +28,12 @@ export const LoginContents = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 100px 0px;
 `;
 export const RowBox = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 10px 0px;
 `;
 
@@ -40,12 +43,12 @@ export const Text = styled.div`
 `;
 export const AdminId = styled.input`
   width: 300px;
-  height: 40px;
+  height: 50px;
 `;
 
 export const AdminPw = styled.input`
   width: 300px;
-  height: 40px;
+  height: 50px;
 `;
 
 export const LoginButton = styled.button`
@@ -56,5 +59,5 @@ export const LoginButton = styled.button`
   background-color: #5d8bff;
   color: #fff;
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 80px;
 `;
