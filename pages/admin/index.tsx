@@ -4,6 +4,6 @@ import { useAuth } from "../../src/components/commons/hooks/useAuth";
 import AdminPage from "../../src/components/units/Admin/Admin.container";
 
 export default function Admin() {
-  useAuth("관리자 계정으로 로그인 해주세요.");
+  useAuth();
   return <AdminPage />;
 }

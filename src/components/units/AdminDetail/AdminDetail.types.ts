@@ -1,1 +1,3 @@
-export interface IAdminDetailUIProps {}
+export interface IAdminDetailUIProps {
+  data: any;
+}

@@ -27,12 +27,14 @@ export default function AdminLoginPage() {
       const result = await loginUser({
         variables: { adminId: adminId, password: adminPw },
       });
-      console.log(result);
-      const accessToken = result.data.adminLogin;
-      setAccessToken(accessToken);
-      localStorage.setItem("accessToken", accessToken);
-      Modal.success({ content: "로그인 성공" });
-      router.push("/admin");
+      setAccessToken(result.data?.adminLogin);
+      Modal.success({
+        content: "로그인 성공",
+        onOk() {
+          router.push("/admin");
+        },
+      });
+      console.log(accessTokenState);
     } catch (error: any) {
       Modal.error({ content: "로그인 실패 " });
     }

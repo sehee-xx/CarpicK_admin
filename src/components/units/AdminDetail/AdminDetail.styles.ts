@@ -34,6 +34,7 @@ export const BodyLeft = styled.div`
 
 export const BodyRight = styled.div`
   width: 100%;
+  padding: 80px 20px;
 `;
 
 export const RowBox = styled.div`
@@ -43,38 +44,38 @@ export const RowBox = styled.div`
   padding-bottom: 20px;
 `;
 
-export const Name = styled.div`
-  padding-left: 20px;
+export const Name = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const PhoneNum = styled.div`
-  padding-left: 20px;
+export const PhoneNum = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const Address = styled.div`
-  padding-left: 20px;
+export const Address = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const CarNum = styled.div`
-  padding-left: 20px;
+export const CarNum = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const CarCategory = styled.div`
-  padding-left: 20px;
+export const CarCategory = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const Oil = styled.div`
-  padding-left: 20px;
+export const Oil = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
-export const HighPath = styled.div`
-  padding-left: 20px;
+export const HighPath = styled.input`
+  margin-left: 20px;
   color: #5d8bff;
 `;
 
@@ -92,6 +93,8 @@ export const Approve = styled.button`
   height: 70px;
   margin-right: 30px;
   font-weight: 500;
+  border: none;
+  background-color: #a5a5a5;
   :hover {
     background-color: #5d8bff;
     color: #fff;
@@ -103,6 +106,8 @@ export const Refuse = styled.button`
   width: 180px;
   height: 70px;
   font-weight: 500;
+  border: none;
+  background-color: #a5a5a5;
   :hover {
     background-color: #5d8bff;
     color: #fff;
