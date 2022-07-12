@@ -1,6 +1,7 @@
 import * as S from "./AdminDetail.styles";
 import DaumPostcode from "react-daum-postcode";
 import { IAdminDetailUIProps } from "./AdminDetail.types";
+import KakaoMap from "../../commons/kakao-map";
 
 export default function AdminDetailUI(props: IAdminDetailUIProps) {
   console.log(props.data);
@@ -12,32 +13,61 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
       <S.Body>
         <S.BodyLeft>
           <S.RowBox>
-            이름: <S.Name />
+            <S.Text>이름: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
-            전화번호: <S.PhoneNum />
+            <S.Text>휴대폰번호: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
-            주소: <S.Address />
+            <S.Text>주소: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
-            차량번호: <S.CarNum />
+            <S.Text>차량번호: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
-            차종: <S.CarCategory />
+            <S.Text>차종: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
-            연료: <S.Oil />
+            <S.Text>연료: </S.Text>
+            <S.Input />
           </S.RowBox>
           <S.RowBox>
             {/* 하이패스: <S.HighPath>{el.isHipass ? "가능" : "불가능"}</S.HighPath> */}
-            하이패스: <S.HighPath />
+            <S.Text>하이패스: </S.Text>
+            <S.Input />
           </S.RowBox>
+          <S.RowBox>
+            <S.Text>1시간 금액: </S.Text>
+            <S.Input />
+          </S.RowBox>
+          <S.RowBox>
+            <S.Text>계약기간: </S.Text>
+            <S.Input />
+          </S.RowBox>
+          {/* 차량사진, 자동차 등록증 */}
         </S.BodyLeft>
         <S.BodyRight>
-          <DaumPostcode />
+          <DaumPostcode autoClose={false} />
+          <KakaoMap address={"서울 동작구 신대방동 698-26"} />
         </S.BodyRight>
       </S.Body>
+      <S.BodyBottom>
+        <S.Text>차량사진</S.Text>
+        <S.ImageBox>
+          <S.CarImages></S.CarImages>
+          <S.CarImages></S.CarImages>
+          <S.CarImages></S.CarImages>
+        </S.ImageBox>
+        <S.Text>자동차 등록증</S.Text>
+        <S.ImageBox>
+          <S.CarRegistration></S.CarRegistration>
+        </S.ImageBox>
+      </S.BodyBottom>
       <S.ButtonBox>
         <S.Approve>승인</S.Approve>
         <S.Refuse>거절</S.Refuse>

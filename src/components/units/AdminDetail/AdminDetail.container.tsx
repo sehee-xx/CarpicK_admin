@@ -8,6 +8,5 @@ export default function AdminDetailPage() {
   const { data } = useQuery(FETCH_CAR_REGISTRATION, {
     variables: { carRegistrationId: router.query.carId },
   });
-  console.log("this is id", router.query.carId);
   return <AdminDetailUI data={data} />;
 }

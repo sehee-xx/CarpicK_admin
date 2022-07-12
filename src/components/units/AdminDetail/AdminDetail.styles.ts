@@ -25,58 +25,60 @@ export const Body = styled.div`
 `;
 
 export const BodyLeft = styled.div`
-  width: 70%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 100px;
+  padding: 80px 30px;
 `;
 
 export const BodyRight = styled.div`
   width: 100%;
-  padding: 80px 20px;
+  padding: 80px 30px;
+`;
+
+export const BodyBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const RowBox = styled.div`
   display: flex;
   flex-direction: row;
+  padding-bottom: 40px;
+`;
+
+export const Text = styled.div`
+  width: 150px;
   font-size: 25px;
-  padding-bottom: 20px;
 `;
 
-export const Name = styled.input`
-  margin-left: 20px;
+export const Input = styled.input`
+  width: 500px;
   color: #5d8bff;
+  font-size: 25px;
 `;
 
-export const PhoneNum = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
+export const CarImages = styled.div`
+  width: 500px;
+  height: 500px;
+  background-color: #a5a5a5;
+  margin-right: 20px;
+  margin-top: 20px;
 `;
 
-export const Address = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
+export const CarRegistration = styled.div`
+  width: 500px;
+  height: 500px;
+  background-color: #a5a5a5;
+  margin-top: 20px;
 `;
 
-export const CarNum = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
-`;
-
-export const CarCategory = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
-`;
-
-export const Oil = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
-`;
-
-export const HighPath = styled.input`
-  margin-left: 20px;
-  color: #5d8bff;
+export const ImageBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 80px;
 `;
 
 export const ButtonBox = styled.div`
