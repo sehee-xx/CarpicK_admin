@@ -71,3 +71,52 @@ export const Oil = styled.div`
 export const HighPath = styled.div`
   padding-left: 20px;
 `;
+
+export const Table = styled.div`
+  width: 100%;
+`;
+
+export const TableTop = styled.div`
+  margin-top: 20px;
+`;
+
+export const TableBottom = styled.div``;
+
+export const RowTop = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 52px;
+  line-height: 52px;
+  border-bottom: 2px solid #a5a5a5;
+`;
+
+export const Row = styled(RowTop)`
+  :hover {
+    color: orange;
+    font-weight: 900;
+  }
+`;
+
+export const ColumnHeaderBasic = styled.div`
+  width: 10%;
+  text-align: center;
+`;
+
+export const ColumnHeaderTitle = styled.div`
+  width: 70%;
+  text-align: center;
+`;
+
+export const ColumnBasic = styled.div`
+  width: 10%;
+  text-align: center;
+`;
+
+export const ColumnTitle = styled.div`
+  width: 70%;
+  text-align: center;
+  cursor: pointer;
+  :hover {
+    color: orange;
+  }
+`;
