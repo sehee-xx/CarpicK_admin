@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -31,7 +31,7 @@ export default function KakaoMap(props: any) {
                 result[0].y,
                 result[0].x
               );
-
+              props.setLatlng([result[0].y, result[0].x]);
               const marker = new window.kakao.maps.Marker({
                 map,
                 position: coords,

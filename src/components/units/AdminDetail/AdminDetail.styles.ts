@@ -60,7 +60,31 @@ export const Input = styled.input`
   font-size: 25px;
 `;
 
-export const CarImages = styled.div`
+export const UserInputCarCategory = styled.input`
+  width: 30%;
+  color: #5d8bff;
+  font-size: 25px;
+`;
+
+export const MiniBox = styled.div`
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const CarCategory = styled.select`
+  width: 21%;
+  height: 44px;
+  font-size: 25px;
+`;
+
+export const CarModel = styled.select`
+  width: 21%;
+  height: 44px;
+  font-size: 25px;
+`;
+
+export const CarImages = styled.img`
   width: 500px;
   height: 500px;
   background-color: #a5a5a5;
@@ -68,7 +92,7 @@ export const CarImages = styled.div`
   margin-top: 20px;
 `;
 
-export const CarRegistration = styled.div`
+export const CarRegistration = styled.img`
   width: 500px;
   height: 500px;
   background-color: #a5a5a5;

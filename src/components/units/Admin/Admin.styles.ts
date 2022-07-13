@@ -68,19 +68,21 @@ export const Oil = styled.div`
   padding-left: 20px;
 `;
 
-export const HighPath = styled.div`
+export const HiPass = styled.div`
+  padding-left: 20px;
+`;
+
+export const Date = styled.div`
+  padding-left: 20px;
+`;
+
+export const Status = styled.div`
   padding-left: 20px;
 `;
 
 export const Table = styled.div`
   width: 100%;
 `;
-
-export const TableTop = styled.div`
-  margin-top: 20px;
-`;
-
-export const TableBottom = styled.div``;
 
 export const RowTop = styled.div`
   display: flex;
@@ -92,31 +94,18 @@ export const RowTop = styled.div`
 
 export const Row = styled(RowTop)`
   :hover {
-    color: orange;
+    color: #5d8bff;
     font-weight: 900;
   }
 `;
 
 export const ColumnHeaderBasic = styled.div`
-  width: 10%;
+  width: 200px;
   text-align: center;
-`;
-
-export const ColumnHeaderTitle = styled.div`
-  width: 70%;
-  text-align: center;
+  font-weight: 700;
 `;
 
 export const ColumnBasic = styled.div`
-  width: 10%;
+  width: 200px;
   text-align: center;
-`;
-
-export const ColumnTitle = styled.div`
-  width: 70%;
-  text-align: center;
-  cursor: pointer;
-  :hover {
-    color: orange;
-  }
 `;

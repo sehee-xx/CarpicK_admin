@@ -10,6 +10,18 @@ export const FETCH_CAR_REGISTRATIONS = gql`
       oil
       address
       status
+      user {
+        name
+        phone
+      }
+      imageCar {
+        url
+      }
+      imageRegistration {
+        url
+      }
+      status
+      createdAt
     }
   }
 `;
