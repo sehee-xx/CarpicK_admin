@@ -7,7 +7,7 @@ import {
   CREATE_CAR,
   FETCH_CAR_CATEGORY,
   FETCH_CAR_REGISTRATION,
-  UPDATE_RESERVATION_STATUS,
+  UPDATE_REGISTRATION_STATUS,
 } from "./AdminDetail.queries";
 
 export default function AdminDetailPage() {
@@ -29,7 +29,7 @@ export default function AdminDetailPage() {
   const [fixCarName, setFixCarName] = useState("");
 
   const [createCar] = useMutation(CREATE_CAR);
-  const [updateReservationStatus] = useMutation(UPDATE_RESERVATION_STATUS);
+  const [updateCarRegistrationStatus] = useMutation(UPDATE_REGISTRATION_STATUS);
   const { data } = useQuery(FETCH_CAR_REGISTRATION, {
     variables: { carRegistrationId: router.query.carId },
   });
@@ -55,17 +55,14 @@ export default function AdminDetailPage() {
 
   const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
     setAddressDetail(event.target.value);
-    console.log(addressDetail);
   };
 
   const onChangePrice = (event: ChangeEvent<HTMLInputElement>) => {
     setPrice(event.target.value);
-    console.log(price);
   };
 
   const onChangeContractPeriod = (event: ChangeEvent<HTMLInputElement>) => {
     setContractPeriod(event.target.value);
-    console.log(contractPeriod);
   };
 
   const onClickApprove = async () => {
@@ -91,28 +88,29 @@ export default function AdminDetailPage() {
           },
         },
       });
-      console.log(resultCreateCar);
 
-      const resultUpdateReservationStatus = await updateReservationStatus({
+      const resultUpdateRegistrationStatus = await updateCarRegistrationStatus({
         variables: {
           carRegistrationId: data?.fetchCarRegistration.id,
           status: "PASS",
         },
       });
-      console.log(resultUpdateReservationStatus);
+      Modal.success({ content: "승인 완료" });
+      router.push("/admin");
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };
 
   const onClickRefuse = async () => {
-    const resultUpdateReservationStatus = await updateReservationStatus({
+    const resultUpdateReservationStatus = await updateCarRegistrationStatus({
       variables: {
         carRegistrationId: data?.fetchCarRegistration.id,
         status: "FAIL",
       },
     });
-    console.log(resultUpdateReservationStatus);
+    Modal.error({ content: "승인 거절" });
+    router.push("/admin");
   };
 
   return (

@@ -33,9 +33,17 @@ export const CREATE_CAR = gql`
   }
 `;
 
-export const UPDATE_RESERVATION_STATUS = gql`
-  mutation updateReservationStatus($reservationId: String!, $status: String!) {
-    updateReservationStatus(reservationId: $reservationId, status: $status)
+export const UPDATE_REGISTRATION_STATUS = gql`
+  mutation updateCarRegistrationStatus(
+    $carRegistrationId: String!
+    $status: String!
+  ) {
+    updateCarRegistrationStatus(
+      carRegistrationId: $carRegistrationId
+      status: $status
+    ) {
+      id
+    }
   }
 `;
 

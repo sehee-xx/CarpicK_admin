@@ -78,6 +78,8 @@ export const Date = styled.div`
 
 export const Status = styled.div`
   padding-left: 20px;
+  color: ${(props: { status: string }) =>
+    props.status === "FAIL" ? "#FF6347" : "#5d8bff"};
 `;
 
 export const Table = styled.div`

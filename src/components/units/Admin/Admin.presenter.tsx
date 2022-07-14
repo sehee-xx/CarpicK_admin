@@ -3,7 +3,6 @@ import { IAdminUIProps } from "./Admin.types";
 import Paginations01 from "../../commons/paginations/Paginations01.container";
 
 export default function AdminUI(props: IAdminUIProps) {
-  console.log(props.data);
   return (
     <S.Wrapper>
       <S.HeaderText>마이카 등록 접수 리스트</S.HeaderText>
@@ -46,7 +45,7 @@ export default function AdminUI(props: IAdminUIProps) {
               <S.Date>{el.createdAt.slice(0, 10).replace(/-/gi, ".")}</S.Date>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.Status>{el.status}</S.Status>
+              <S.Status status={el.status}>{el.status}</S.Status>
             </S.ColumnBasic>
           </S.Row>
         ))}

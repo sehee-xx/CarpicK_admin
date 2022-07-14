@@ -34,7 +34,6 @@ export default function AdminLoginPage() {
           router.push("/admin");
         },
       });
-      console.log(accessTokenState);
     } catch (error: any) {
       Modal.error({ content: "로그인 실패 " });
     }
