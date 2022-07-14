@@ -17,6 +17,10 @@ export interface IAdminDetailUIProps {
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePrice: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContractPeriod: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeAddCarCategory: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeAddCarModel: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickApprove: () => void;
   onClickRefuse: () => void;
+  onClickAddCarCategory: () => void;
+  onClickDeleteCarCategory: () => void;
 }

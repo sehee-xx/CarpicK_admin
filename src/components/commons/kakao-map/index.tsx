@@ -50,10 +50,5 @@ export default function KakaoMap(props: any) {
       });
     };
   }, [props.address]);
-  return (
-    <div
-      id="map"
-      style={{ width: "100%", height: "400px", marginTop: "20px" }}
-    ></div>
-  );
+  return <div id="map" style={{ width: "100%", height: "410px" }}></div>;
 }

@@ -38,12 +38,12 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             <S.Input defaultValue={""} onChange={props.onChangeAddressDetail} />
           </S.RowBox>
           <S.RowBox>
-            <S.MiniBox>
-              <S.Text>위도: </S.Text>
-              <S.Input defaultValue={props.latLng[0]} />
-              <S.Text>경도: </S.Text>
-              <S.Input defaultValue={props.latLng[1]} />
-            </S.MiniBox>
+            <S.Text>위도: </S.Text>
+            <S.Input defaultValue={props.latLng[0]} />
+          </S.RowBox>
+          <S.RowBox>
+            <S.Text>경도: </S.Text>
+            <S.Input defaultValue={props.latLng[1]} />
           </S.RowBox>
           <S.RowBox>
             <S.Text>차량번호: </S.Text>
@@ -52,37 +52,38 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             />
           </S.RowBox>
           <S.RowBox>
-            <S.MiniBox>
-              <S.Text>차종: </S.Text>
-              <S.UserInputCarCategory
-                defaultValue={
-                  props.fixCarName.length === 0
-                    ? props.data?.fetchCarRegistration.model
-                    : props.fixCarName
-                }
-              />
-              <S.CarCategory onChange={props.selectedChange}>
-                {props.carCategoryOp.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </S.CarCategory>
-              <S.CarModel onChange={props.fixCarNameChange}>
-                {props.carModel?.fetchCarCategory
-                  .filter((el) => {
-                    return el.name === props.selected;
-                  })[0]
-                  .carModel.map((el, idx) => {
-                    return (
-                      <option key={idx} value={el.name}>
-                        {el.name}
-                      </option>
-                    );
-                  })}
-              </S.CarModel>
-            </S.MiniBox>
+            <S.Text>차종: </S.Text>
+            <S.Input
+              defaultValue={
+                props.fixCarName.length === 0
+                  ? props.data?.fetchCarRegistration.model
+                  : props.fixCarName
+              }
+            />
           </S.RowBox>
+          <S.SelectBox>
+            <S.CarCategory onChange={props.selectedChange}>
+              {props.carCategoryOp?.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </S.CarCategory>
+            <S.CarModel onChange={props.fixCarNameChange}>
+              {props.carModel?.fetchCarCategory
+                .filter((el) => {
+                  return el.name === props.selected;
+                })[0]
+                ?.carModel?.map((el, idx) => {
+                  return (
+                    <option key={idx} value={el.name}>
+                      {el.name}
+                    </option>
+                  );
+                })}
+            </S.CarModel>
+          </S.SelectBox>
+
           <S.RowBox>
             <S.Text>연료: </S.Text>
             <S.Input defaultValue={props.data?.fetchCarRegistration.oil} />
@@ -110,6 +111,21 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             onComplete={props.handleComplete}
           />
           <KakaoMap setLatlng={props.setLatlng} address={props.address} />
+          <S.Label>차량 카테고리 · 모델 추가 삭제</S.Label>
+          <S.AddCarCategoryBox>
+            <S.Text>차량 카테고리</S.Text>
+            <S.AddCarCategoryInput onChange={props.onChangeAddCarCategory} />
+            <S.Text>차량 모델</S.Text>
+            <S.AddCarModel onChange={props.onChangeAddCarModel} />
+          </S.AddCarCategoryBox>
+          <S.CarCategoryButtonBox>
+            <S.CarCategoryButton onClick={props.onClickAddCarCategory}>
+              추가하기
+            </S.CarCategoryButton>
+            <S.CarCategoryButton onClick={props.onClickDeleteCarCategory}>
+              삭제하기
+            </S.CarCategoryButton>
+          </S.CarCategoryButtonBox>
         </S.BodyRight>
       </S.Body>
       <S.BodyBottom>

@@ -53,8 +53,39 @@ export const FETCH_CAR_CATEGORY = gql`
       id
       name
       carModel {
+        id
         name
       }
     }
+  }
+`;
+
+export const CREATE_CAR_CATEGORY = gql`
+  mutation createCarCategory($createCarCategoryInput: CreateCarCategoryInput!) {
+    createCarCategory(createCarCategoryInput: $createCarCategoryInput) {
+      id
+      name
+    }
+  }
+`;
+
+export const CREATE_CAR_MODEL = gql`
+  mutation createCarModel($createCarModelInput: CreateCarModelInput!) {
+    createCarModel(createCarModelInput: $createCarModelInput) {
+      id
+      name
+    }
+  }
+`;
+
+export const DELETE_CAR_CATEGORY = gql`
+  mutation deleteCarCategory($carCategoryId: String!) {
+    deleteCarCategory(carCategoryId: $carCategoryId)
+  }
+`;
+
+export const DELETE_CAR_MODEL = gql`
+  mutation deleteCarModel($carModelId: String!) {
+    deleteCarModel(carModelId: $carModelId)
   }
 `;

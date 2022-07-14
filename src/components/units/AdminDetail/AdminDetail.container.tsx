@@ -5,19 +5,16 @@ import { ChangeEvent, useEffect, useState } from "react";
 import AdminDetailUI from "./AdminDetail.presenter";
 import {
   CREATE_CAR,
+  CREATE_CAR_CATEGORY,
+  CREATE_CAR_MODEL,
+  DELETE_CAR_CATEGORY,
+  DELETE_CAR_MODEL,
   FETCH_CAR_CATEGORY,
   FETCH_CAR_REGISTRATION,
   UPDATE_REGISTRATION_STATUS,
 } from "./AdminDetail.queries";
 
 export default function AdminDetailPage() {
-  const carCategoryOp = [
-    { value: "전기", label: "전기" },
-    { value: "경형", label: "경형" },
-    { value: "세단", label: "세단" },
-    { value: "SUV", label: "SUV" },
-  ];
-
   const router = useRouter();
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
@@ -25,20 +22,39 @@ export default function AdminDetailPage() {
   const [addressDetail, setAddressDetail] = useState("");
   const [price, setPrice] = useState("");
   const [contractPeriod, setContractPeriod] = useState("");
-  const [selected, setSelected] = useState(carCategoryOp[0].value);
   const [fixCarName, setFixCarName] = useState("");
+  const [updateCarCategory, setUpdateCarCategory] = useState("");
+  const [updateCarModel, setUpdateCarModel] = useState("");
+  const [carCategoryOp, setCarCategoryOp] = useState([{}]);
+  const [selected, setSelected] = useState("");
 
   const [createCar] = useMutation(CREATE_CAR);
   const [updateCarRegistrationStatus] = useMutation(UPDATE_REGISTRATION_STATUS);
+  const [createCarCategory] = useMutation(CREATE_CAR_CATEGORY);
+  const [createCarModel] = useMutation(CREATE_CAR_MODEL);
+  const [deleteCarCategory] = useMutation(DELETE_CAR_CATEGORY);
+  const [deleteCarModel] = useMutation(DELETE_CAR_MODEL);
+
   const { data } = useQuery(FETCH_CAR_REGISTRATION, {
     variables: { carRegistrationId: router.query.carId },
   });
+
+  const { data: carModel } = useQuery(FETCH_CAR_CATEGORY);
 
   useEffect(() => {
     setAddress(data?.fetchCarRegistration.address);
   }, [data]);
 
-  const { data: carModel } = useQuery(FETCH_CAR_CATEGORY);
+  useEffect(() => {
+    if (carModel !== undefined) {
+      setCarCategoryOp(
+        carModel.fetchCarCategory.map((el) => ({
+          value: el.name,
+          label: el.name,
+        }))
+      );
+    }
+  }, [carModel]);
 
   const selectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelected(event.target.value);
@@ -63,6 +79,73 @@ export default function AdminDetailPage() {
 
   const onChangeContractPeriod = (event: ChangeEvent<HTMLInputElement>) => {
     setContractPeriod(event.target.value);
+  };
+
+  const onChangeAddCarCategory = (event: ChangeEvent<HTMLInputElement>) => {
+    setUpdateCarCategory(event.target.value);
+  };
+
+  const onChangeAddCarModel = (event: ChangeEvent<HTMLInputElement>) => {
+    setUpdateCarModel(event.target.value);
+  };
+
+  const onClickAddCarCategory = async () => {
+    try {
+      const result = carModel?.fetchCarCategory.filter((el) => {
+        return el.name === updateCarCategory;
+      });
+      console.log(result);
+      if (result.length === 0) {
+        const creatCarCategoryResult = await createCarCategory({
+          variables: {
+            createCarCategoryInput: {
+              name: updateCarCategory,
+            },
+          },
+        });
+      }
+      const createCarModelResult = await createCarModel({
+        variables: {
+          createCarModelInput: {
+            name: updateCarModel,
+            carCategoryName: updateCarCategory,
+          },
+        },
+      });
+      Modal.success({ content: "차량 추가 완료" });
+    } catch (error: any) {
+      Modal.error({ content: error.messgae });
+    }
+  };
+
+  const onClickDeleteCarCategory = async () => {
+    try {
+      const result = carModel?.fetchCarCategory.filter((el) => {
+        return el.name === updateCarCategory;
+      });
+      if (result[0].carModel.length === 1) {
+        deleteCarCategory({
+          variables: {
+            carCategoryId: result[0].id,
+          },
+        });
+      } else {
+        const deleteModelIdx = result[0].carModel.filter((el) => {
+          return el.name === updateCarModel;
+        });
+        console.log("차량 모델 아이디: ");
+        console.log(deleteModelIdx);
+        deleteCarModel({
+          variables: {
+            carModelId: deleteModelIdx[0].id,
+          },
+        });
+      }
+      console.log(result);
+      Modal.success({ content: "차량 삭제 완료" });
+    } catch (error: any) {
+      Modal.error({ content: error.messgae });
+    }
   };
 
   const onClickApprove = async () => {
@@ -113,6 +196,7 @@ export default function AdminDetailPage() {
     router.push("/admin");
   };
 
+  console.log(carModel);
   return (
     <AdminDetailUI
       data={data}
@@ -131,8 +215,12 @@ export default function AdminDetailPage() {
       onChangeAddressDetail={onChangeAddressDetail}
       onChangePrice={onChangePrice}
       onChangeContractPeriod={onChangeContractPeriod}
+      onChangeAddCarCategory={onChangeAddCarCategory}
+      onChangeAddCarModel={onChangeAddCarModel}
       onClickApprove={onClickApprove}
       onClickRefuse={onClickRefuse}
+      onClickAddCarCategory={onClickAddCarCategory}
+      onClickDeleteCarCategory={onClickDeleteCarCategory}
     />
   );
 }

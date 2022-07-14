@@ -25,15 +25,19 @@ export const Body = styled.div`
 `;
 
 export const BodyLeft = styled.div`
-  /* width: 100%; */
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 40px;
   padding: 80px 30px;
 `;
 
 export const BodyRight = styled.div`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 60%;
   padding: 80px 30px;
 `;
 
@@ -46,7 +50,13 @@ export const BodyBottom = styled.div`
 export const RowBox = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 40px;
+`;
+
+export const SelectBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-left: 120px;
+  width: 100%;
 `;
 
 export const Text = styled.div`
@@ -55,32 +65,69 @@ export const Text = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 500px;
+  width: 100%;
   color: #5d8bff;
   font-size: 25px;
 `;
 
+export const Label = styled.div`
+  font-size: 25px;
+  font-weight: 700;
+`;
+
+export const AddCarCategoryBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const AddCarCategoryInput = styled.input`
+  width: 250px;
+  font-size: 25px;
+`;
+
+export const AddCarModel = styled.input`
+  width: 250px;
+  font-size: 25px;
+`;
+
+export const CarCategoryButtonBox = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const CarCategoryButton = styled.button`
+  width: 100%;
+  height: 100px;
+  font-size: 25px;
+  border: none;
+  background-color: #a5a5a5;
+  :hover {
+    background-color: #5d8bff;
+    color: white;
+  }
+  margin-right: 20px;
+`;
+
 export const UserInputCarCategory = styled.input`
-  width: 30%;
   color: #5d8bff;
   font-size: 25px;
 `;
 
 export const MiniBox = styled.div`
-  width: 700px;
+  width: 100%;
   display: flex;
   flex-direction: row;
 `;
 
 export const CarCategory = styled.select`
-  width: 21%;
   height: 44px;
+  width: 50%;
   font-size: 25px;
 `;
 
 export const CarModel = styled.select`
-  width: 21%;
   height: 44px;
+  width: 50%;
   font-size: 25px;
 `;
 

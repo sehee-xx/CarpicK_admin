@@ -12,6 +12,7 @@ export default function AdminPage() {
     },
   });
 
+  console.log(data);
   const onClickMoveToCarDetail = (event: any) => {
     router.push(`/admin/detail/${event.currentTarget.id}`);
   };
