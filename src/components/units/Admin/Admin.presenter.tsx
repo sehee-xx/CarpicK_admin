@@ -52,7 +52,9 @@ export default function AdminUI(props: IAdminUIProps) {
           </S.Row>
         ))}
       </S.Table>
-      <Paginations01 refetch={props.refetch} count={props.count} />
+      <S.Paginations>
+        <Paginations01 refetch={props.refetch} count={props.count} />
+      </S.Paginations>
     </S.Wrapper>
   );
 }

@@ -25,3 +25,9 @@ export const FETCH_CAR_REGISTRATIONS = gql`
     }
   }
 `;
+
+export const FETCH_CAR_REGISTRATION_COUNT = gql`
+  query fetchCarRegistrationCount {
+    fetchCarRegistrationCount
+  }
+`;

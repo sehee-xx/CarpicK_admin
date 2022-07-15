@@ -80,3 +80,10 @@ export const ColumnBasic = styled.div`
   width: 100%;
   text-align: center;
 `;
+
+export const Paginations = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
