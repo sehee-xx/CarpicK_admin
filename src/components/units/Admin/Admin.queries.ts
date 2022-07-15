@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_CAR_REGISTRATIONS = gql`
-  query fetchCarRegistrations($page: Int!) {
+  query fetchCarRegistrations($page: Float!) {
     fetchCarRegistrations(page: $page) {
       id
       carNumber

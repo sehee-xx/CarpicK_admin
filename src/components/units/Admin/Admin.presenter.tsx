@@ -12,7 +12,7 @@ export default function AdminUI(props: IAdminUIProps) {
           <S.ColumnHeaderBasic>전화번호</S.ColumnHeaderBasic>
           <S.ColumnHeaderBasic>주소</S.ColumnHeaderBasic>
           <S.ColumnHeaderBasic>차량번호</S.ColumnHeaderBasic>
-          <S.ColumnHeaderBasic>차종</S.ColumnHeaderBasic>
+          <S.ColumnHeaderBasic>차량모델</S.ColumnHeaderBasic>
           <S.ColumnHeaderBasic>연료</S.ColumnHeaderBasic>
           <S.ColumnHeaderBasic>하이패스</S.ColumnHeaderBasic>
           <S.ColumnHeaderBasic>접수날짜</S.ColumnHeaderBasic>
@@ -21,28 +21,30 @@ export default function AdminUI(props: IAdminUIProps) {
         {props.data?.fetchCarRegistrations.map((el: any) => (
           <S.Row id={el.id} onClick={props.onClickMoveToCarDetail}>
             <S.ColumnBasic>
-              <S.Name>{el.user?.name}</S.Name>
+              <S.Contents>{el.user?.name}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.PhoneNum>{el.user?.phone}</S.PhoneNum>
+              <S.Contents>{el.user?.phone}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.Address>{el.address}</S.Address>
+              <S.Contents>{el.address}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.CarNum>{el.carNumber}</S.CarNum>
+              <S.Contents>{el.carNumber}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.CarCategory>{el.model}</S.CarCategory>
+              <S.Contents>{el.model}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.Oil>{el.oil}</S.Oil>
+              <S.Contents>{el.oil}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.HiPass>{el.isHipass ? "가능" : "불가능"}</S.HiPass>
+              <S.Contents>{el.isHipass ? "가능" : "불가능"}</S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
-              <S.Date>{el.createdAt.slice(0, 10).replace(/-/gi, ".")}</S.Date>
+              <S.Contents>
+                {el.createdAt.slice(0, 10).replace(/-/gi, ".")}
+              </S.Contents>
             </S.ColumnBasic>
             <S.ColumnBasic>
               <S.Status status={el.status}>{el.status}</S.Status>

@@ -7,7 +7,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
   return (
     <S.Wrapper>
       <S.HeaderText>
-        {props.data?.fetchCarRegistration.id} 차량 상세 정보
+        {props.data?.fetchCarRegistration.carNumber} 차량 상세 정보
       </S.HeaderText>
       <S.Body>
         <S.BodyLeft>
@@ -52,7 +52,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             />
           </S.RowBox>
           <S.RowBox>
-            <S.Text>차종: </S.Text>
+            <S.Text>등록 모델: </S.Text>
             <S.Input
               defaultValue={
                 props.fixCarName.length === 0
@@ -61,7 +61,8 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
               }
             />
           </S.RowBox>
-          <S.SelectBox>
+          <S.RowBox>
+            <S.Text> ▸ 카테고리: </S.Text>
             <S.CarCategory onChange={props.selectedChange}>
               {props.carCategoryOp?.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -69,6 +70,9 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
                 </option>
               ))}
             </S.CarCategory>
+          </S.RowBox>
+          <S.RowBox>
+            <S.Text>▸ 모델:</S.Text>
             <S.CarModel onChange={props.fixCarNameChange}>
               {props.carModel?.fetchCarCategory
                 .filter((el) => {
@@ -82,8 +86,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
                   );
                 })}
             </S.CarModel>
-          </S.SelectBox>
-
+          </S.RowBox>
           <S.RowBox>
             <S.Text>연료: </S.Text>
             <S.Input defaultValue={props.data?.fetchCarRegistration.oil} />
@@ -131,15 +134,13 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
       <S.BodyBottom>
         <S.Text>차량사진</S.Text>
         <S.ImageBox>
-          <S.CarImages
-            src={`https://storage.cloud.google.com/${props.data?.fetchCarRegistration.imageCar[0].url}`}
-          ></S.CarImages>
-          <S.CarImages
-            src={`https://storage.cloud.google.com/${props.data?.fetchCarRegistration.imageCar[1].url}`}
-          ></S.CarImages>
-          <S.CarImages
-            src={`https://storage.cloud.google.com/${props.data?.fetchCarRegistration.imageCar[2].url}`}
-          ></S.CarImages>
+          {props.data?.fetchCarRegistration.imageCar.map((el) => {
+            return (
+              <S.CarImages
+                src={`https://storage.cloud.google.com/${el.url}`}
+              ></S.CarImages>
+            );
+          })}
         </S.ImageBox>
         <S.Text>자동차 등록증</S.Text>
         <S.ImageBox>

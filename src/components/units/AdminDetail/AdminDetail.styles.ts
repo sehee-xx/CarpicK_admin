@@ -25,7 +25,7 @@ export const Body = styled.div`
 `;
 
 export const BodyLeft = styled.div`
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@ export const BodyRight = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 60%;
+  width: 70%;
   padding: 80px 30px;
 `;
 
@@ -121,13 +121,13 @@ export const MiniBox = styled.div`
 
 export const CarCategory = styled.select`
   height: 44px;
-  width: 50%;
+  width: 100%;
   font-size: 25px;
 `;
 
 export const CarModel = styled.select`
   height: 44px;
-  width: 50%;
+  width: 100%;
   font-size: 25px;
 `;
 

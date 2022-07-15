@@ -39,7 +39,7 @@ export default function AdminDetailPage() {
     variables: { carRegistrationId: router.query.carId },
   });
 
-  const { data: carModel } = useQuery(FETCH_CAR_CATEGORY);
+  const { data: carModel, refetch } = useQuery(FETCH_CAR_CATEGORY);
 
   useEffect(() => {
     setAddress(data?.fetchCarRegistration.address);
@@ -58,6 +58,11 @@ export default function AdminDetailPage() {
 
   const selectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelected(event.target.value);
+
+    const temp = carModel?.fetchCarCategory.filter((el) => {
+      return el.name === event.target.value;
+    })[0];
+    setFixCarName(temp.carModel[0].name);
   };
 
   const fixCarNameChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -103,6 +108,7 @@ export default function AdminDetailPage() {
             },
           },
         });
+        refetch();
       }
       const createCarModelResult = await createCarModel({
         variables: {
@@ -112,6 +118,7 @@ export default function AdminDetailPage() {
           },
         },
       });
+      refetch();
       Modal.success({ content: "차량 추가 완료" });
     } catch (error: any) {
       Modal.error({ content: error.messgae });
@@ -133,15 +140,13 @@ export default function AdminDetailPage() {
         const deleteModelIdx = result[0].carModel.filter((el) => {
           return el.name === updateCarModel;
         });
-        console.log("차량 모델 아이디: ");
-        console.log(deleteModelIdx);
         deleteCarModel({
           variables: {
             carModelId: deleteModelIdx[0].id,
           },
         });
       }
-      console.log(result);
+      refetch();
       Modal.success({ content: "차량 삭제 완료" });
     } catch (error: any) {
       Modal.error({ content: error.messgae });

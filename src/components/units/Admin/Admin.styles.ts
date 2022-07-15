@@ -26,7 +26,6 @@ export const Cars = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 20px;
-  padding-left: 50px;
 `;
 
 export const CarInfo = styled.div`
@@ -44,40 +43,9 @@ export const DivideLine = styled.div`
   background-color: #a5a5a5;
 `;
 
-export const Name = styled.div`
-  padding-left: 20px;
-`;
-
-export const PhoneNum = styled.div`
-  padding-left: 20px;
-`;
-
-export const Address = styled.div`
-  padding-left: 20px;
-`;
-
-export const CarNum = styled.div`
-  padding-left: 20px;
-`;
-
-export const CarCategory = styled.div`
-  padding-left: 20px;
-`;
-
-export const Oil = styled.div`
-  padding-left: 20px;
-`;
-
-export const HiPass = styled.div`
-  padding-left: 20px;
-`;
-
-export const Date = styled.div`
-  padding-left: 20px;
-`;
+export const Contents = styled.div``;
 
 export const Status = styled.div`
-  padding-left: 20px;
   color: ${(props: { status: string }) =>
     props.status === "FAIL" ? "#FF6347" : "#5d8bff"};
 `;
@@ -95,6 +63,7 @@ export const RowTop = styled.div`
 `;
 
 export const Row = styled(RowTop)`
+  cursor: pointer;
   :hover {
     color: #5d8bff;
     font-weight: 900;
@@ -102,12 +71,12 @@ export const Row = styled(RowTop)`
 `;
 
 export const ColumnHeaderBasic = styled.div`
-  width: 200px;
+  width: 100%;
   text-align: center;
   font-weight: 700;
 `;
 
 export const ColumnBasic = styled.div`
-  width: 200px;
+  width: 100%;
   text-align: center;
 `;
