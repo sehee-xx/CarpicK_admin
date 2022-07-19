@@ -63,7 +63,6 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             <S.Text> ▸ 카테고리: </S.Text>
             <S.CarCategory onChange={props.selectedChange}>
               <option selected disabled>
-                {" "}
                 카테고리 선택
               </option>
               {props.carCategoryOp?.map((option) => (

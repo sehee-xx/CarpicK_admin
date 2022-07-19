@@ -20,7 +20,6 @@ export default function AdminPage() {
     refetch: refetchCarRegistrationCount,
   } = useQuery(FETCH_CAR_REGISTRATION_COUNT);
 
-  console.log(data);
   const onClickMoveToCarDetail = (event: any) => {
     router.push(`/admin/detail/${event.currentTarget.id}`);
   };

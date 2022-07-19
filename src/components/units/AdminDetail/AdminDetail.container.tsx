@@ -155,7 +155,6 @@ export default function AdminDetailPage() {
   };
 
   const onClickApprove = async () => {
-    console.log(data);
     try {
       const resultCreateCar = await createCar({
         variables: {

@@ -2,7 +2,6 @@ import {
   ApolloClient,
   ApolloLink,
   ApolloProvider,
-  gql,
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
