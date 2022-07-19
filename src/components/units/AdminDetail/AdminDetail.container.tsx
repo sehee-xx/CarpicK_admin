@@ -99,7 +99,6 @@ export default function AdminDetailPage() {
       const result = carModel?.fetchCarCategory.filter((el) => {
         return el.name === updateCarCategory;
       });
-      console.log(result);
       if (result.length === 0) {
         const creatCarCategoryResult = await createCarCategory({
           variables: {
@@ -108,6 +107,7 @@ export default function AdminDetailPage() {
             },
           },
         });
+        setUpdateCarCategory("");
         refetch();
       }
       const createCarModelResult = await createCarModel({
@@ -118,6 +118,7 @@ export default function AdminDetailPage() {
           },
         },
       });
+      setUpdateCarModel("");
       refetch();
       Modal.success({ content: "차량 추가 완료" });
     } catch (error: any) {

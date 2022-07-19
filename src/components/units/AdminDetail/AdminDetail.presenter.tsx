@@ -62,6 +62,10 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           <S.RowBox>
             <S.Text> ▸ 카테고리: </S.Text>
             <S.CarCategory onChange={props.selectedChange}>
+              <option selected disabled>
+                {" "}
+                카테고리 선택
+              </option>
               {props.carCategoryOp?.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -72,6 +76,9 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           <S.RowBox>
             <S.Text>▸ 모델:</S.Text>
             <S.CarModel onChange={props.fixCarNameChange}>
+              <option selected disabled>
+                모델 선택
+              </option>
               {props.carModel?.fetchCarCategory
                 .filter((el) => {
                   return el.name === props.selected;
