@@ -1,9 +1,9 @@
 import { AppProps } from "next/app";
-import "antd/dist/antd.css";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { RecoilRoot } from "recoil";
 import ApolloSetting from "../src/components/commons/apollo";
+import "antd/dist/antd.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
