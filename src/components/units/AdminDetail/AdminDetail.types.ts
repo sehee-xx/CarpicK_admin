@@ -9,6 +9,8 @@ export interface IAdminDetailUIProps {
   selected: string;
   carModel: Array;
   fixCarName: string;
+  updateCarCategory: string;
+  updateCarModel: string;
   setSelected: Dispatch<SetStateAction<string>>;
   selectedChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   fixCarNameChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;

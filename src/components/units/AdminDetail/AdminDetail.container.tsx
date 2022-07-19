@@ -107,8 +107,6 @@ export default function AdminDetailPage() {
             },
           },
         });
-        setUpdateCarCategory("");
-        refetch();
       }
       const createCarModelResult = await createCarModel({
         variables: {
@@ -118,11 +116,16 @@ export default function AdminDetailPage() {
           },
         },
       });
-      setUpdateCarModel("");
-      refetch();
-      Modal.success({ content: "차량 추가 완료" });
+      Modal.success({
+        content: "차량 추가 완료",
+        onOk() {
+          refetch();
+          setUpdateCarCategory("");
+          setUpdateCarModel("");
+        },
+      });
     } catch (error: any) {
-      Modal.error({ content: error.messgae });
+      Modal.error({ content: error.messgae, title: "에러" });
     }
   };
 
@@ -213,6 +216,8 @@ export default function AdminDetailPage() {
       carCategoryOp={carCategoryOp}
       carModel={carModel}
       fixCarName={fixCarName}
+      updateCarCategory={updateCarCategory}
+      updateCarModel={updateCarModel}
       setSelected={setSelected}
       handleComplete={handleComplete}
       selectedChange={selectedChange}

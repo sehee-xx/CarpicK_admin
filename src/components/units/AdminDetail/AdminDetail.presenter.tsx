@@ -121,9 +121,15 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           <S.Label>차량 카테고리 · 모델 추가 삭제</S.Label>
           <S.AddCarCategoryBox>
             <S.Text>차량 카테고리</S.Text>
-            <S.AddCarCategoryInput onChange={props.onChangeAddCarCategory} />
+            <S.AddCarCategoryInput
+              onChange={props.onChangeAddCarCategory}
+              value={props.updateCarCategory}
+            />
             <S.Text>차량 모델</S.Text>
-            <S.AddCarModel onChange={props.onChangeAddCarModel} />
+            <S.AddCarModel
+              onChange={props.onChangeAddCarModel}
+              value={props.updateCarModel}
+            />
           </S.AddCarCategoryBox>
           <S.CarCategoryButtonBox>
             <S.CarCategoryButton onClick={props.onClickAddCarCategory}>
