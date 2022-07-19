@@ -1,6 +1,6 @@
 import * as S from "./Admin.styles";
 import { IAdminUIProps } from "./Admin.types";
-import Paginations01 from "../../commons/paginations/Paginations01.container";
+import Paginations01 from "../../commons/pagination/Pagination.container";
 
 export default function AdminUI(props: IAdminUIProps) {
   return (
@@ -52,9 +52,9 @@ export default function AdminUI(props: IAdminUIProps) {
           </S.Row>
         ))}
       </S.Table>
-      <S.Paginations>
+      <S.Pagination>
         <Paginations01 refetch={props.refetch} count={props.count} />
-      </S.Paginations>
+      </S.Pagination>
     </S.Wrapper>
   );
 }

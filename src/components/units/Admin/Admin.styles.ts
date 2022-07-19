@@ -81,7 +81,7 @@ export const ColumnBasic = styled.div`
   text-align: center;
 `;
 
-export const Paginations = styled.div`
+export const Pagination = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -5,14 +5,14 @@ import {
   IQueryFetchBoardsArgs,
 } from "../../../commons/generated/types";
 
-export interface IPaginations01Props {
+export interface IPaginationProps {
   count?: number;
   refetch: (
     variables: Partial<IQueryFetchBoardsArgs>
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
 }
 
-export interface IPaginations01UIProps {
+export interface IPaginationUIProps {
   startPage: number;
   lastPage: number;
   activedPage: number;
