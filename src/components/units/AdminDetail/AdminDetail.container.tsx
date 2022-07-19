@@ -154,6 +154,7 @@ export default function AdminDetailPage() {
   };
 
   const onClickApprove = async () => {
+    console.log(data);
     try {
       const resultCreateCar = await createCar({
         variables: {
@@ -163,7 +164,7 @@ export default function AdminDetailPage() {
             price: Number(price),
             oil: data?.fetchCarRegistration.oil,
             contractPeriod: contractPeriod,
-            ownerEmail: String(data?.fetchCarRegistration.ownerEmail),
+            userId: data?.fetchCarRegistration.user.id,
             carModelName: fixCarName,
             carLocation: {
               address: address,

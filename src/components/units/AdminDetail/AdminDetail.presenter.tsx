@@ -18,13 +18,11 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             />
           </S.RowBox>
           <S.RowBox>
-            <S.Text>이메일: </S.Text>
-            <S.Input
-              defaultValue={props.data?.fetchCarRegistration.user.email}
-            />
+            <S.Text>UserId: </S.Text>
+            <S.Input defaultValue={props.data?.fetchCarRegistration.user.id} />
           </S.RowBox>
           <S.RowBox>
-            <S.Text>휴대폰번호: </S.Text>
+            <S.Text>전화번호: </S.Text>
             <S.Input
               defaultValue={props.data?.fetchCarRegistration.user.phone}
             />

@@ -11,9 +11,9 @@ export const FETCH_CAR_REGISTRATION = gql`
       address
       status
       user {
+        id
         name
         phone
-        email
       }
       imageCar {
         url

@@ -25,7 +25,7 @@ export const Body = styled.div`
 `;
 
 export const BodyLeft = styled.div`
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +34,7 @@ export const BodyLeft = styled.div`
 `;
 
 export const BodyRight = styled.div`
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 40px;
