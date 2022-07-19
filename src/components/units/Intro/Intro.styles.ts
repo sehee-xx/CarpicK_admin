@@ -221,7 +221,7 @@ export const SecondBottomDiv = styled.div`
 
 export const SecondContents = styled.div`
   font-weight: normal;
-  font-size: 20px;
+  font-size: 23px;
   color: #0a0a0a;
   letter-spacing: 3px;
   margin-top: 100px;
@@ -286,7 +286,7 @@ export const ThirdImage = styled.img`
 export const ThirdContents = styled.div`
   width: 100%;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 23px;
   text-align: end;
   color: #0a0a0a;
   letter-spacing: 5px;
@@ -344,7 +344,7 @@ export const FourthBottomDiv = styled.div`
 
 export const FourthContents = styled.div`
   font-weight: normal;
-  font-size: 20px;
+  font-size: 23px;
   color: #0a0a0a;
   letter-spacing: 3px;
 
