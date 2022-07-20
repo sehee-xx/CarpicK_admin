@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   width: 100%;
   background-color: #f7f8f9;
   display: flex;
@@ -35,6 +35,17 @@ export const RowBox = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 10px 0px;
+`;
+
+export const ColumnBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ErrorBox = styled.div`
+  font-size: 12px;
+  font-weight: 700;
+  color: tomato;
 `;
 
 export const Text = styled.div`

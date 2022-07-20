@@ -1,5 +1,13 @@
-export interface IAdminLoginUIUIProps {
-  onClickLogin: () => void;
-  onChangeAdminId: (event: any) => void;
-  onChangeAdminPw: (event: any) => void;
+import {
+  FieldValues,
+  FormState,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from "react-hook-form";
+
+export interface IAdminLoginUIProps {
+  onClickLogin: (data: FieldValues) => Promise<void>;
+  register: UseFormRegister<FieldValues>;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
+  formState: FormState<FieldValues>;
 }

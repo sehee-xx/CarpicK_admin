@@ -5,27 +5,29 @@ import { useMutation } from "@apollo/client";
 import { ADMIN_LOGIN } from "./AdminLogin.queries";
 import { useRouter } from "next/router";
 import { Modal } from "antd";
-import { useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 export default function AdminLoginPage() {
   const [, setAccessToken] = useRecoilState(accessTokenState);
   const [loginUser] = useMutation(ADMIN_LOGIN);
-  const [adminId, setAdminId] = useState("");
-  const [adminPw, setAdminPw] = useState("");
   const router = useRouter();
 
-  const onChangeAdminId = (event: any) => {
-    setAdminId(event.target.value);
-  };
+  const schema = yup.object({
+    adminId: yup.string().required("아이디는 필수 입력 사항입니다."),
+    adminPw: yup.string().required("비밀번호는 필수 입력 사항입니다."),
+  });
 
-  const onChangeAdminPw = (event: any) => {
-    setAdminPw(event.target.value);
-  };
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
 
-  const onClickLogin = async () => {
+  const onClickLogin = async (data: FieldValues) => {
     try {
       const result = await loginUser({
-        variables: { adminId: adminId, password: adminPw },
+        variables: { adminId: data.adminId, password: data.adminPw },
       });
       setAccessToken(result.data?.adminLogin);
       Modal.success({
@@ -41,8 +43,9 @@ export default function AdminLoginPage() {
   return (
     <AdminLoginUI
       onClickLogin={onClickLogin}
-      onChangeAdminId={onChangeAdminId}
-      onChangeAdminPw={onChangeAdminPw}
+      register={register}
+      handleSubmit={handleSubmit}
+      formState={formState}
     />
   );
 }
