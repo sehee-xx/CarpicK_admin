@@ -11,6 +11,8 @@ export interface IAdminDetailUIProps {
   fixCarName: string;
   updateCarCategory: string;
   updateCarModel: string;
+  contractStart: Date;
+  contractEnd: Date;
   setSelected: Dispatch<SetStateAction<string>>;
   selectedChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   fixCarNameChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -25,4 +27,6 @@ export interface IAdminDetailUIProps {
   onClickRefuse: () => void;
   onClickAddCarCategory: () => void;
   onClickDeleteCarCategory: () => void;
+  setContractStart: Dispatch<SetStateAction<Date>>;
+  setContractEnd: Dispatch<SetStateAction<Date>>;
 }

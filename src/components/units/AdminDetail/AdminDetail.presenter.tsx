@@ -3,8 +3,8 @@ import DaumPostcode from "react-daum-postcode";
 import { IAdminDetailUIProps } from "./AdminDetail.types";
 import KakaoMap from "../../commons/kakao-map";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
-import moment from "moment"
+import "react-calendar/dist/Calendar.css";
+import moment from "moment";
 
 export default function AdminDetailUI(props: IAdminDetailUIProps) {
   return (
@@ -109,21 +109,23 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           <S.RowBox>
             <S.Text>계약 시작일: </S.Text>
             <div>
-              <Calendar onChange={props.setContractStart} value={props.contractStart} />
+              <Calendar
+                onChange={props.setContractStart}
+                value={props.contractStart}
+              />
             </div>
           </S.RowBox>
-            <div>
-             {moment(props.contractStart).format("YYYY.MM.DD")} 
-            </div>
+          <div>{moment(props.contractStart).format("YYYY.MM.DD")}</div>
           <S.RowBox>
             <S.Text>계약 종료일: </S.Text>
             <div>
-              <Calendar onChange={props.setContractEnd} value={props.contractEnd} />
+              <Calendar
+                onChange={props.setContractEnd}
+                value={props.contractEnd}
+              />
             </div>
           </S.RowBox>
-          <div>
-             {moment(props.contractEnd).format("YYYY.MM.DD")} 
-            </div>
+          <div>{moment(props.contractEnd).format("YYYY.MM.DD")}</div>
         </S.BodyLeft>
         <S.BodyRight>
           <DaumPostcode
