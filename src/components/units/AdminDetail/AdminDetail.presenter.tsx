@@ -107,25 +107,27 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
             <S.Input defaultValue={""} onChange={props.onChangePrice} />
           </S.RowBox>
           <S.RowBox>
-            <S.Text>계약 시작일: </S.Text>
-            <div>
-              <Calendar
-                onChange={props.setContractStart}
-                value={props.contractStart}
-              />
-            </div>
+            <S.ColumnBox>
+              <S.Text>계약 시작일: </S.Text>
+              <S.Date>
+                {moment(props.contractStart).format("YYYY.MM.DD")}
+              </S.Date>
+            </S.ColumnBox>
+            <Calendar
+              onChange={props.setContractStart}
+              value={props.contractStart}
+            />
           </S.RowBox>
-          <div>{moment(props.contractStart).format("YYYY.MM.DD")}</div>
           <S.RowBox>
-            <S.Text>계약 종료일: </S.Text>
-            <div>
-              <Calendar
-                onChange={props.setContractEnd}
-                value={props.contractEnd}
-              />
-            </div>
+            <S.ColumnBox>
+              <S.Text>계약 종료일: </S.Text>
+              <S.Date>{moment(props.contractEnd).format("YYYY.MM.DD")}</S.Date>
+            </S.ColumnBox>
+            <Calendar
+              onChange={props.setContractEnd}
+              value={props.contractEnd}
+            />
           </S.RowBox>
-          <div>{moment(props.contractEnd).format("YYYY.MM.DD")}</div>
         </S.BodyLeft>
         <S.BodyRight>
           <DaumPostcode

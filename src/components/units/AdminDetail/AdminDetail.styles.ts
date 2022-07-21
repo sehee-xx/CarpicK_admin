@@ -53,6 +53,11 @@ export const RowBox = styled.div`
   flex-direction: row;
 `;
 
+export const ColumnBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const SelectBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -74,6 +79,12 @@ export const Input = styled.input`
 export const Label = styled.div`
   font-size: 25px;
   font-weight: 700;
+`;
+
+export const Date = styled.text`
+  font-size: 18px;
+  font-weight: 700;
+  color: tomato;
 `;
 
 export const AddCarCategoryBox = styled.div`
