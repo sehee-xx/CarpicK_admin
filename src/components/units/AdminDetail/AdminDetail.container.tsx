@@ -13,6 +13,7 @@ import {
   FETCH_CAR_REGISTRATION,
   UPDATE_REGISTRATION_STATUS,
 } from "./AdminDetail.queries";
+import moment from "moment"
 
 export default function AdminDetailPage() {
   const router = useRouter();
@@ -27,6 +28,9 @@ export default function AdminDetailPage() {
   const [updateCarModel, setUpdateCarModel] = useState("");
   const [carCategoryOp, setCarCategoryOp] = useState([{}]);
   const [selected, setSelected] = useState("");
+
+  const [contractStart, setContractStart] = useState(new Date())
+  const [contractEnd, setContractEnd] = useState(new Date())
 
   const [createCar] = useMutation(CREATE_CAR);
   const [updateCarRegistrationStatus] = useMutation(UPDATE_REGISTRATION_STATUS);
@@ -166,7 +170,6 @@ export default function AdminDetailPage() {
             isHipass: data?.fetchCarRegistration.isHipass,
             price: Number(price),
             oil: data?.fetchCarRegistration.oil,
-            contractPeriod: contractPeriod,
             userId: data?.fetchCarRegistration.user.id,
             carModelName: fixCarName,
             carLocation: {
@@ -177,6 +180,8 @@ export default function AdminDetailPage() {
             },
             carUrl: data?.fetchCarRegistration.imageCar.map((el) => el.url),
             registrationUrl: data?.fetchCarRegistration.imageRegistration.url,
+            contractStart: moment(contractStart,"YYYY-MM-DD"),
+            contractEnd: moment(contractEnd,"YYYY-MM-DD"),
           },
         },
       });
@@ -205,7 +210,8 @@ export default function AdminDetailPage() {
     router.push("/admin");
   };
 
-  console.log(carModel);
+  
+  // console.log("this is moment",moment(contractEnd,"YYYY-MM-DD"));
   return (
     <AdminDetailUI
       data={data}
@@ -232,6 +238,10 @@ export default function AdminDetailPage() {
       onClickRefuse={onClickRefuse}
       onClickAddCarCategory={onClickAddCarCategory}
       onClickDeleteCarCategory={onClickDeleteCarCategory}
+      contractStart={contractStart}
+      setContractStart={setContractStart}
+      contractEnd={contractEnd}
+      setContractEnd={setContractEnd}
     />
   );
 }
