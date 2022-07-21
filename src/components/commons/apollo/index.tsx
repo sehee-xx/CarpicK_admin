@@ -25,7 +25,7 @@ export default function ApolloSetting(props: any) {
   }, []);
 
   const uploadLink = createUploadLink({
-    uri: "https://carpick.shop/graphql",
+    uri: "https://car-pick.shop/graphql",
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
