@@ -5,12 +5,30 @@ export const Wrapper = styled.div`
   background-color: #f7f8f9;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #5d8bff;
+  align-items: center;
+`;
+
+export const StatusSelect = styled.select`
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 50px;
+  text-align: center;
+`;
 export const HeaderText = styled.div`
   width: 100%;
   height: 100px;
   font-size: 40px;
   font-weight: 700;
-  background-color: #5d8bff;
   color: #fff;
   display: flex;
   flex-direction: row;

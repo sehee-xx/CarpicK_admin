@@ -5,7 +5,24 @@ import Paginations01 from "../../commons/pagination/Pagination.container";
 export default function AdminUI(props: IAdminUIProps) {
   return (
     <S.Wrapper>
-      <S.HeaderText>마이카 등록 접수 리스트</S.HeaderText>
+      <S.Header>
+        <S.HeaderText>
+          {props.statusSelect === "승인"
+            ? "승인 차량 리스트"
+            : "마이카 등록 접수 리스트"}
+        </S.HeaderText>
+        <S.StatusSelect
+          onChange={props.StatusChange}
+          // onClick={props.onClickMoveToPass}
+        >
+          <option key="전체" value="전체">
+            전체
+          </option>
+          <option key="승인" value="승인">
+            승인
+          </option>
+        </S.StatusSelect>
+      </S.Header>
       <S.Table>
         <S.RowTop>
           <S.ColumnHeaderBasic>이름</S.ColumnHeaderBasic>

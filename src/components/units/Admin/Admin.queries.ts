@@ -31,3 +31,25 @@ export const FETCH_CAR_REGISTRATION_COUNT = gql`
     fetchCarRegistrationCount
   }
 `;
+
+export const FETCH_CARS = gql`
+  query fetchCars($page: Int!, $carLocationId: String!) {
+    fetchCars(page: $page, carLocationId: $carLocationId) {
+      id
+      carNumber
+      carModel {
+        name
+      }
+      isHipass
+      price
+      oil
+      contractStart
+      contractEnd
+      status
+      isAvailable
+      user {
+        name
+      }
+    }
+  }
+`;
