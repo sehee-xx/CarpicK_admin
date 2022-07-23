@@ -9,9 +9,5 @@ export interface IAdminUIProps {
   refetch(
     variables?: Partial<OperationVariables> | undefined
   ): Promise<ApolloQueryResult<any>>;
-  refetchCarRegistrationCount: (
-    variables: Partial<OperationVariables>
-  ) => Promise<ApolloQueryResult<any>>;
   StatusChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  // onClickMoveToPass: () => void;
 }
