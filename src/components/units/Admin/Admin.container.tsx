@@ -32,15 +32,13 @@ export default function AdminPage() {
   console.log("this is statusselect", statusSelect);
   const { data, refetch } = getCarList(statusSelect);
 
-  const {
-    data: dataCarRegistrationCount,
-    refetch: refetchCarRegistrationCount,
-  } = useQuery(FETCH_CAR_REGISTRATION_COUNT);
+  const { data: dataCarRegistrationCount } = useQuery(
+    FETCH_CAR_REGISTRATION_COUNT
+  );
 
-  const {
-    data: dataCarsWithDeletedCount,
-    refetch: refetchdataCarsWithDeletedCountCount,
-  } = useQuery(FETCH_CARS_WITH_DELETED_COUNT);
+  const { data: dataCarsWithDeletedCount } = useQuery(
+    FETCH_CARS_WITH_DELETED_COUNT
+  );
 
   const onClickMoveToRegistrationDetail = (event: any) => {
     router.push(`/admin/detail_registration/${event.currentTarget.id}`);
@@ -67,7 +65,6 @@ export default function AdminPage() {
       onClickMoveToRegistrationDetail={onClickMoveToRegistrationDetail}
       onClickMoveToCarDetail={onClickMoveToCarDetail}
       refetch={refetch}
-      refetchCarRegistrationCount={refetchCarRegistrationCount}
       StatusChange={StatusChange}
     />
   );
