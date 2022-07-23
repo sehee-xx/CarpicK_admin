@@ -25,6 +25,32 @@ export const FETCH_CAR_REGISTRATION = gql`
   }
 `;
 
+export const FETCH_CAR_WITH_DELETED = gql`
+  query fetchCarWithDeleted($carId: String!) {
+    fetchCarWithDeleted(carId: $carId) {
+      id
+      carNumber
+      carModel {
+        name
+      }
+      isHipass
+      price
+      oil
+      carLocation {
+        addressDetail
+      }
+      contractStart
+      contractEnd
+      user {
+        name
+        phone
+      }
+      isValid
+      updatedAt
+    }
+  }
+`;
+
 export const CREATE_CAR = gql`
   mutation createCar($createCarInput: CreateCarInput!) {
     createCar(createCarInput: $createCarInput) {

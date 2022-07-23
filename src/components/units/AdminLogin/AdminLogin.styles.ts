@@ -55,11 +55,13 @@ export const Text = styled.div`
 export const AdminId = styled.input`
   width: 300px;
   height: 50px;
+  padding-left: 10px;
 `;
 
 export const AdminPw = styled.input`
   width: 300px;
   height: 50px;
+  padding-left: 10px;
 `;
 
 export const LoginButton = styled.button`

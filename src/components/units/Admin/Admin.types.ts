@@ -4,6 +4,7 @@ export interface IAdminUIProps {
   data: any;
   count?: number;
   statusSelect: string;
+  onClickMoveToRegistrationDetail: (el: any) => void;
   onClickMoveToCarDetail: (el: any) => void;
   refetch(
     variables?: Partial<OperationVariables> | undefined

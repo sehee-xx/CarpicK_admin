@@ -10,12 +10,15 @@ import {
   DELETE_CAR_CATEGORY,
   DELETE_CAR_MODEL,
   FETCH_CAR_CATEGORY,
-  FETCH_CAR_REGISTRATION,
+  FETCH_CAR_WITH_DELETED,
   UPDATE_REGISTRATION_STATUS,
+  STOP_CONTRACT,
+  RESTART_CONTRACT,
+  REFRESH_CONTRACT,
 } from "./AdminDetail.queries";
 import moment from "moment";
 
-export default function AdminDetailPage() {
+export default function AdminDetailCarPage() {
   const router = useRouter();
   const [address, setAddress] = useState("");
   const [zipcode, setZipcode] = useState("");
@@ -38,15 +41,18 @@ export default function AdminDetailPage() {
   const [createCarModel] = useMutation(CREATE_CAR_MODEL);
   const [deleteCarCategory] = useMutation(DELETE_CAR_CATEGORY);
   const [deleteCarModel] = useMutation(DELETE_CAR_MODEL);
+  const [stopContract] = useMutation(STOP_CONTRACT);
+  const [restartContract] = useMutation(RESTART_CONTRACT);
+  const [refreshContract] = useMutation(REFRESH_CONTRACT);
 
-  const { data } = useQuery(FETCH_CAR_REGISTRATION, {
-    variables: { carRegistrationId: router.query.carId },
+  const { data } = useQuery(FETCH_CAR_WITH_DELETED, {
+    variables: { carId: router.query.carId },
   });
-
+  console.log("test data", data);
   const { data: carModel, refetch } = useQuery(FETCH_CAR_CATEGORY);
 
   useEffect(() => {
-    setAddress(data?.fetchCarRegistration.address);
+    setAddress(data?.fetchCarWithDeleted.carLocation.addressDetail);
   }, [data]);
 
   useEffect(() => {
@@ -161,37 +167,38 @@ export default function AdminDetailPage() {
     }
   };
 
-  const onClickApprove = async () => {
+  const onClickStop = async () => {
+    if (!data.fetchCarWithDeleted.isValid) {
+      Modal.error({ content: "이미 운행중지된 차량입니다." });
+      return;
+    }
     try {
-      const resultCreateCar = await createCar({
+      await stopContract({
         variables: {
-          createCarInput: {
-            carNumber: data?.fetchCarRegistration.carNumber,
-            isHipass: data?.fetchCarRegistration.isHipass,
-            price: Number(price),
-            oil: data?.fetchCarRegistration.oil,
-            userId: data?.fetchCarRegistration.user.id,
-            carModelName: fixCarName,
-            carLocation: {
-              address: address,
-              addressDetail: addressDetail,
-              lat: Number(latLng[0]),
-              lng: Number(latLng[1]),
-            },
-            carUrl: data?.fetchCarRegistration.imageCar.map((el) => el.url),
-            registrationUrl: data?.fetchCarRegistration.imageRegistration.url,
-            contractStart: moment(contractStart, "YYYY-MM-DD"),
-            contractEnd: moment(contractEnd, "YYYY-MM-DD"),
-          },
+          carId: router.query.carId,
         },
       });
 
-      const resultUpdateRegistrationStatus = await updateCarRegistrationStatus({
+      Modal.success({ content: "해당차량의 운행이 중지됩니다." });
+      router.push("/admin");
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
+  };
+
+  const onClickRestart = async () => {
+    if (data.fetchCarWithDeleted.isValid) {
+      Modal.error({ content: "이미 운행중인 차량입니다." });
+      return;
+    }
+
+    try {
+      await restartContract({
         variables: {
-          carRegistrationId: data?.fetchCarRegistration.id,
-          status: "PASS",
+          carId: router.query.carId,
         },
       });
+
       Modal.success({ content: "승인 완료" });
       router.push("/admin");
     } catch (error: any) {
@@ -199,15 +206,21 @@ export default function AdminDetailPage() {
     }
   };
 
-  const onClickRefuse = async () => {
-    const resultUpdateReservationStatus = await updateCarRegistrationStatus({
-      variables: {
-        carRegistrationId: data?.fetchCarRegistration.id,
-        status: "FAIL",
-      },
-    });
-    Modal.error({ content: "승인 거절" });
-    router.push("/admin");
+  const onClickRefresh = async () => {
+    try {
+      await refreshContract({
+        variables: {
+          contractStart: moment(contractStart, "YYYY-MM-DD"),
+          contractEnd: moment(contractEnd, "YYYY-MM-DD"),
+          carId: router.query.carId,
+        },
+      });
+
+      Modal.success({ content: "계약 기간 재생성 완료" });
+      router.push("/admin");
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
   };
 
   return (
@@ -234,8 +247,9 @@ export default function AdminDetailPage() {
       onChangeContractPeriod={onChangeContractPeriod}
       onChangeAddCarCategory={onChangeAddCarCategory}
       onChangeAddCarModel={onChangeAddCarModel}
-      onClickApprove={onClickApprove}
-      onClickRefuse={onClickRefuse}
+      onClickStop={onClickStop}
+      onClickRestart={onClickRestart}
+      onClickRefresh={onClickRefresh}
       onClickAddCarCategory={onClickAddCarCategory}
       onClickDeleteCarCategory={onClickDeleteCarCategory}
       setContractStart={setContractStart}

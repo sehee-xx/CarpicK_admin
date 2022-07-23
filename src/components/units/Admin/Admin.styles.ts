@@ -65,7 +65,11 @@ export const Contents = styled.div``;
 
 export const Status = styled.div`
   color: ${(props: { status: string }) =>
-    props.status === "FAIL" ? "#FF6347" : "#5d8bff"};
+    props.status === "FAIL"
+      ? "#FF6347" // FAIL 빨간색
+      : props.status === "IN_PROCESS"
+      ? "#a5a5a5" // IN_PROCESS 회색
+      : "#5d8bff"}; // PASS 파란색
 `;
 
 export const Table = styled.div`
@@ -104,4 +108,12 @@ export const Pagination = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+`;
+
+export const StatusTrue = styled.div`
+  color: #5d8bff;
+`;
+
+export const StatusFalse = styled.div`
+  color: #ff6347;
 `;

@@ -11,11 +11,27 @@ export const HeaderText = styled.div`
   font-size: 40px;
   font-weight: 700;
   background-color: #5d8bff;
+  background-color: ${(props: { isValid: boolean }) =>
+    props.isValid ? "5d8bff" : "#a5a5a5"};
   color: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: relative;
+`;
+
+export const StatusText = styled.div`
+  right: 0;
+  margin-right: 40px;
+  width: 150px;
+  height: 100px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: absolute;
 `;
 
 export const Body = styled.div`
@@ -107,6 +123,7 @@ export const CarCategoryButtonBox = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
 export const CarCategoryButton = styled.button`
   width: 100%;
   height: 100px;
@@ -116,6 +133,7 @@ export const CarCategoryButton = styled.button`
   :hover {
     background-color: #5d8bff;
     color: white;
+    cursor: pointer;
   }
   margin-right: 20px;
 `;
@@ -173,7 +191,7 @@ export const ButtonBox = styled.div`
   font-size: 25px;
 `;
 
-export const Approve = styled.button`
+export const StopContract = styled.button`
   width: 180px;
   height: 70px;
   margin-right: 30px;
@@ -187,7 +205,7 @@ export const Approve = styled.button`
   }
 `;
 
-export const Refuse = styled.button`
+export const ReStartContract = styled.button`
   width: 180px;
   height: 70px;
   font-weight: 500;
@@ -198,4 +216,23 @@ export const Refuse = styled.button`
     color: #fff;
     cursor: pointer;
   }
+`;
+
+export const RefreshContract = styled.button`
+  width: 100%;
+  height: 70px;
+  margin-right: 30px;
+  font-weight: 500;
+  border: none;
+  background-color: #a5a5a5;
+  :hover {
+    background-color: #5d8bff;
+    color: #fff;
+    cursor: pointer;
+  }
+`;
+
+export const PostMapWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

@@ -5,12 +5,13 @@ import KakaoMap from "../../commons/kakao-map";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
+import { Image } from "antd";
 
 export default function AdminDetailUI(props: IAdminDetailUIProps) {
   return (
     <S.Wrapper>
       <S.HeaderText>
-        {props.data?.fetchCarRegistration.carNumber} 차량 상세 정보
+        {props.data?.fetchCarRegistration.carNumber} 접수차량 상세 정보
       </S.HeaderText>
       <S.Body>
         <S.BodyLeft>
@@ -104,7 +105,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           </S.RowBox>
           <S.RowBox>
             <S.Text>1시간 금액: </S.Text>
-            <S.Input defaultValue={""} onChange={props.onChangePrice} />
+            <S.Input defaultValue={"100"} onChange={props.onChangePrice} />
           </S.RowBox>
           <S.RowBox>
             <S.ColumnBox>
@@ -130,20 +131,46 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           </S.RowBox>
         </S.BodyLeft>
         <S.BodyRight>
-          <DaumPostcode
-            focusInput={props.data?.fetchCarRegistration.address}
-            autoClose={false}
-            onComplete={props.handleComplete}
-          />
-          <KakaoMap setLatlng={props.setLatlng} address={props.address} />
+          <S.RowWrapper>
+            <S.CarImageWrapper>
+              <S.Text>차량사진</S.Text>
+              <S.ImageBox>
+                {props.data?.fetchCarRegistration.imageCar.map((el) => {
+                  return (
+                    <Image
+                      width={150}
+                      src={`https://storage.cloud.google.com/${el.url}`}
+                    ></Image>
+                  );
+                })}
+              </S.ImageBox>
+            </S.CarImageWrapper>
+            <S.RegistartionImageWrapper>
+              <S.Text>자동차 등록증</S.Text>
+              <S.ImageBox>
+                <Image
+                  width={250}
+                  src={`https://storage.cloud.google.com/${props.data?.fetchCarRegistration.imageRegistration.url}`}
+                ></Image>
+              </S.ImageBox>
+            </S.RegistartionImageWrapper>
+          </S.RowWrapper>
+          <S.PostMapWrapper>
+            <DaumPostcode
+              focusInput={props.data?.fetchCarRegistration.address}
+              autoClose={false}
+              onComplete={props.handleComplete}
+            />
+            <KakaoMap setLatlng={props.setLatlng} address={props.address} />
+          </S.PostMapWrapper>
           <S.Label>차량 카테고리 · 모델 추가 삭제</S.Label>
           <S.AddCarCategoryBox>
-            <S.Text>차량 카테고리</S.Text>
+            <S.Text>차량 카테고리:</S.Text>
             <S.AddCarCategoryInput
               onChange={props.onChangeAddCarCategory}
               value={props.updateCarCategory}
             />
-            <S.Text>차량 모델</S.Text>
+            <S.Text>차량 모델:</S.Text>
             <S.AddCarModel
               onChange={props.onChangeAddCarModel}
               value={props.updateCarModel}
@@ -159,24 +186,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
           </S.CarCategoryButtonBox>
         </S.BodyRight>
       </S.Body>
-      <S.BodyBottom>
-        <S.Text>차량사진</S.Text>
-        <S.ImageBox>
-          {props.data?.fetchCarRegistration.imageCar.map((el) => {
-            return (
-              <S.CarImages
-                src={`https://storage.cloud.google.com/${el.url}`}
-              ></S.CarImages>
-            );
-          })}
-        </S.ImageBox>
-        <S.Text>자동차 등록증</S.Text>
-        <S.ImageBox>
-          <S.CarRegistration
-            src={`https://storage.cloud.google.com/${props.data?.fetchCarRegistration.imageRegistration.url}`}
-          ></S.CarRegistration>
-        </S.ImageBox>
-      </S.BodyBottom>
+      <S.BodyBottom></S.BodyBottom>
       <S.ButtonBox>
         <S.Approve onClick={props.onClickApprove}>승인</S.Approve>
         <S.Refuse onClick={props.onClickRefuse}>거절</S.Refuse>
