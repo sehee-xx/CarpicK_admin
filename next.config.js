@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  trailingSlash: true,
+  generateBuildId: () => "carpick",
+  exportPathMap: () => ({
+    "/": { page: "/" },
+    "/admin": { page: "/admin" },
+    "/404": { page: "/404" },
+  }),
 };
 
-module.exports = {
-  trailingSlash: true,
-};
+module.exports = nextConfig;
