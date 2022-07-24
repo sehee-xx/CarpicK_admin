@@ -66,10 +66,10 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
                 모델 선택
               </option>
               {props.carModel?.fetchCarCategory
-                .filter((el) => {
+                .filter((el: any) => {
                   return el.name === props.selected;
                 })[0]
-                ?.carModel?.map((el, idx) => {
+                ?.carModel?.map((el: any, idx: any) => {
                   return (
                     <option key={idx} value={el.name}>
                       {el.name}
@@ -119,7 +119,7 @@ export default function AdminDetailUI(props: IAdminDetailUIProps) {
         <S.BodyRight>
           <S.Text>차량사진</S.Text>
           <S.ImageBox>
-            {props.data?.fetchCarWithDeleted.imageCar.map((el) => {
+            {props.data?.fetchCarWithDeleted.imageCar.map((el: any) => {
               return (
                 <Image
                   width={200}

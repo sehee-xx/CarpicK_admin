@@ -4,10 +4,10 @@ export interface IAdminDetailUIProps {
   data: any;
   address: string;
   zipcode: string;
-  latLng: Array;
-  carCategoryOp: Object;
+  latLng: any;
+  carCategoryOp: any;
   selected: string;
-  carModel: Array;
+  carModel: any;
   fixCarName: string;
   updateCarCategory: string;
   updateCarModel: string;

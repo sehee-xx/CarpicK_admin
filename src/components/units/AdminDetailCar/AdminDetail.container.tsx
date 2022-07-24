@@ -58,7 +58,7 @@ export default function AdminDetailCarPage() {
   useEffect(() => {
     if (carModel !== undefined) {
       setCarCategoryOp(
-        carModel.fetchCarCategory.map((el) => ({
+        carModel.fetchCarCategory.map((el: any) => ({
           value: el.name,
           label: el.name,
         }))
@@ -69,7 +69,7 @@ export default function AdminDetailCarPage() {
   const selectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelected(event.target.value);
 
-    const temp = carModel?.fetchCarCategory.filter((el) => {
+    const temp = carModel?.fetchCarCategory.filter((el: any) => {
       return el.name === event.target.value;
     })[0];
     setFixCarName(temp.carModel[0].name);
@@ -79,7 +79,7 @@ export default function AdminDetailCarPage() {
     setFixCarName(event.target.value);
   };
 
-  const handleComplete = (data) => {
+  const handleComplete = (data: any) => {
     setZipcode(data.zonecode);
     setAddress(data.address);
   };
@@ -106,7 +106,7 @@ export default function AdminDetailCarPage() {
 
   const onClickAddCarCategory = async () => {
     try {
-      const result = carModel?.fetchCarCategory.filter((el) => {
+      const result = carModel?.fetchCarCategory.filter((el: any) => {
         return el.name === updateCarCategory;
       });
       if (result.length === 0) {
@@ -141,7 +141,7 @@ export default function AdminDetailCarPage() {
 
   const onClickDeleteCarCategory = async () => {
     try {
-      const result = carModel?.fetchCarCategory.filter((el) => {
+      const result = carModel?.fetchCarCategory.filter((el: any) => {
         return el.name === updateCarCategory;
       });
       if (result[0].carModel.length === 1) {
@@ -151,7 +151,7 @@ export default function AdminDetailCarPage() {
           },
         });
       } else {
-        const deleteModelIdx = result[0].carModel.filter((el) => {
+        const deleteModelIdx = result[0].carModel.filter((el: any) => {
           return el.name === updateCarModel;
         });
         deleteCarModel({
