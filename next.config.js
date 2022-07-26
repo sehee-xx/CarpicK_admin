@@ -6,6 +6,7 @@ const nextConfig = {
   exportPathMap: () => ({
     "/": { page: "/" },
     "/admin": { page: "/admin" },
+    "/terms": { page: "/terms" },
     "/404": { page: "/404" },
   }),
 };
