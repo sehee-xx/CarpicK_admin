@@ -16,6 +16,6 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "jest/globals": "off",
+    "eslint-plugin-jest/globals": "off",
   },
 };
