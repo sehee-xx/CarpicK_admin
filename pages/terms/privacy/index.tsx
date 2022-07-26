@@ -1,6 +1,6 @@
 /* 개인정보처리방침 */
 
-import * as S from "../Terms.styles";
+import * as S from "../../../src/components/units/Terms/Terms.styles";
 
 export default function PrivacyPage() {
   return (

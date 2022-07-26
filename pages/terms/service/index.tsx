@@ -1,6 +1,6 @@
 /* 서비스 이용약관 */
 
-import * as S from "../Terms.styles";
+import * as S from "../../../src/components/units/Terms/Terms.styles";
 
 export default function ServicePage() {
   return (
