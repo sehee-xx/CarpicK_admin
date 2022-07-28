@@ -31,7 +31,7 @@ export default function AdminPage() {
 
   console.log("this is statusselect", statusSelect);
   const { data, refetch } = getCarList(statusSelect);
-
+  console.log(data);
   const { data: dataCarRegistrationCount } = useQuery(
     FETCH_CAR_REGISTRATION_COUNT
   );

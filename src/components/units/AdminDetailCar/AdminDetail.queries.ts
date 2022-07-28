@@ -48,7 +48,6 @@ export const FETCH_CAR_WITH_DELETED = gql`
         phone
       }
       isValid
-      updatedAt
       imageCar {
         url
       }

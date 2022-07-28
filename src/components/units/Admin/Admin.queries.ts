@@ -59,7 +59,6 @@ export const FETCH_CARS_WITH_DELETED = gql`
         phone
       }
       isValid
-      updatedAt
     }
   }
 `;
