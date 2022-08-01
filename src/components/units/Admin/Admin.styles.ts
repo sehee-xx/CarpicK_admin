@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
-  background-color: #f7f8f9;
+  background-color: white;
 `;
 
 export const Header = styled.div`
@@ -14,7 +14,7 @@ export const Header = styled.div`
 
 export const StatusSelect = styled.select`
   width: 150px;
-  height: 50px;
+  height: 45px;
   position: absolute;
   right: 0;
   border: none;
@@ -27,7 +27,7 @@ export const StatusSelect = styled.select`
 export const HeaderText = styled.div`
   width: 100%;
   height: 100px;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   color: #fff;
   display: flex;
@@ -61,7 +61,15 @@ export const DivideLine = styled.div`
   background-color: #a5a5a5;
 `;
 
-export const Contents = styled.div``;
+export const ColumnBasic = styled.div`
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+`;
+
+export const Contents = styled.span`
+  word-break: normal;
+`;
 
 export const Status = styled.div`
   color: ${(props: { status: string }) =>
@@ -79,9 +87,9 @@ export const Table = styled.div`
 export const RowTop = styled.div`
   display: flex;
   flex-direction: row;
-  height: 52px;
-  line-height: 52px;
-  border-bottom: 2px solid #a5a5a5;
+  padding: 12px 0;
+  align-items: center;
+  border-bottom: 1px solid #a5a5a5;
 `;
 
 export const Row = styled(RowTop)`
@@ -98,16 +106,12 @@ export const ColumnHeaderBasic = styled.div`
   font-weight: 700;
 `;
 
-export const ColumnBasic = styled.div`
-  width: 100%;
-  text-align: center;
-`;
-
 export const Pagination = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
 `;
 
 export const StatusTrue = styled.div`

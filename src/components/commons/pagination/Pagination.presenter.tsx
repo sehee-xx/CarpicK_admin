@@ -5,7 +5,9 @@ import * as S from "./Pagination.styles";
 export default function PaginationsUI(props: IPaginationUIProps) {
   return (
     <S.Wrapper>
-      <Page onClick={props.onClickPrevPage}>{`<`}</Page>
+      {props.activedPage !== 1 && (
+        <Page onClick={props.onClickPrevPage}>{`<`}</Page>
+      )}
       {new Array(10).fill(1).map(
         (_, index) =>
           props.startPage + index <= props.lastPage && (
@@ -19,7 +21,9 @@ export default function PaginationsUI(props: IPaginationUIProps) {
             </Page>
           )
       )}
-      <Page onClick={props.onClickNextPage}>{`>`}</Page>
+      {props.activedPage !== props.lastPage && (
+        <Page onClick={props.onClickNextPage}>{`>`}</Page>
+      )}
     </S.Wrapper>
   );
 }
