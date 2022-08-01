@@ -67,7 +67,7 @@ export const SelectBox = styled.div`
 
 export const Text = styled.div`
   width: 150px;
-  font-size: 25px;
+  font-size: 20px;
 `;
 
 export const Input = styled.input`
@@ -90,16 +90,16 @@ export const Date = styled.text`
 export const AddCarCategoryBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 40px;
 `;
 
 export const AddCarCategoryInput = styled.input`
-  width: 250px;
+  width: 100%;
   font-size: 25px;
 `;
 
 export const AddCarModel = styled.input`
-  width: 250px;
+  width: 100%;
   font-size: 25px;
 `;
 

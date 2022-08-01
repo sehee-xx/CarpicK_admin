@@ -53,31 +53,15 @@ export default function AdminUI(props: IAdminUIProps) {
             id={el.id}
             onClick={props.onClickMoveToRegistrationDetail}
           >
+            <S.ColumnBasic>{el.user?.name}</S.ColumnBasic>
+            <S.ColumnBasic>{el.user?.phone}</S.ColumnBasic>
+            <S.ColumnBasic>{el.address}</S.ColumnBasic>
+            <S.ColumnBasic>{el.carNumber}</S.ColumnBasic>
+            <S.ColumnBasic>{el.model}</S.ColumnBasic>
+            <S.ColumnBasic>{el.oil}</S.ColumnBasic>
+            <S.ColumnBasic>{el.isHipass ? "가능" : "불가능"}</S.ColumnBasic>
             <S.ColumnBasic>
-              <S.Contents>{el.user?.name}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.user?.phone}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.address}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.carNumber}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.model}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.oil}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>{el.isHipass ? "가능" : "불가능"}</S.Contents>
-            </S.ColumnBasic>
-            <S.ColumnBasic>
-              <S.Contents>
-                {el.createdAt.slice(0, 10).replace(/-/gi, ".")}
-              </S.Contents>
+              {el.createdAt.slice(0, 10).replace(/-/gi, ".")}
             </S.ColumnBasic>
             <S.ColumnBasic>
               <S.Status status={el.status}>{el.status}</S.Status>
