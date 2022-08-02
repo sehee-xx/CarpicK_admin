@@ -413,13 +413,13 @@ export const Footer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 50px 0;
+  padding: 20px 0;
   align-items: center;
   justify-content: center;
   background-color: #5b8dff;
 
   @media ${breakPoints.mobile} {
-    height: 100px;
+    height: 80px;
   }
 `;
 
@@ -436,6 +436,7 @@ export const ButtonBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-right: 30px;
 `;
 
 export const DownLoadButton = styled.button`

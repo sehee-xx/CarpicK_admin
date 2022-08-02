@@ -63,19 +63,10 @@ export default function IntroUI() {
       <S.Footer>
         <S.ButtonBox>
           <S.DownLoadButton>
-            <S.ButtonImage src="/images/apple-logo.png"></S.ButtonImage>
-            <S.ButtonText
-              title="App Store 이동"
-              href="https://www.apple.com/kr/app-store/"
-            >
-              App Store
-            </S.ButtonText>
-          </S.DownLoadButton>
-          <S.DownLoadButton>
             <S.ButtonImage src="/images/google-play.png"></S.ButtonImage>
             <S.ButtonText
-              title="Google Play 이동"
-              href="https://play.google.com/"
+              title="Google Play Download"
+              href="https://drive.google.com/file/d/1W3s4uTfI7aFiFixNn6JgXylMEjM4lgmG/view?usp=sharing"
             >
               Google Play
             </S.ButtonText>
