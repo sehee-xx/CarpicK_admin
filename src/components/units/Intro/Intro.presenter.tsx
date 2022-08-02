@@ -14,14 +14,18 @@ export default function IntroUI() {
         <S.FirstPage>
           <S.WebFirstTitle>매 순간마다 카픽과 함께하세요</S.WebFirstTitle>
           <S.MobileFirstTitle>
-            <p>매 순간마다</p>카픽과 함께하세요
+            <p>매 순간마다</p>
+            <p>카픽과 함께하세요</p>
           </S.MobileFirstTitle>
-          <S.FirstArrow src="./images/ic_arrow.svg" />
         </S.FirstPage>
         <S.LineHr />
         <S.SecondPage>
           <Fade cascade>
-            <S.SecondTitle>카픽으로 이웃의 차를 빌려보세요</S.SecondTitle>
+            <S.WebSecondTitle>카픽으로 이웃의 차를 빌려보세요</S.WebSecondTitle>
+            <S.MobileSecondTitle>
+              <p>카픽으로 이웃의 차를</p>
+              <p>빌려보세요</p>
+            </S.MobileSecondTitle>
             <S.SecondBottomDiv>
               <S.SecondContents>
                 <p>물건은 더이상 ‘소유’의 개념이 아닌</p>
@@ -35,7 +39,11 @@ export default function IntroUI() {
         <S.LineHr />
         <S.ThirdPage>
           <Fade cascade>
-            <S.ThirdTitle>평일에 차를 이용하지 않으세요?</S.ThirdTitle>
+            <S.WebThirdTitle>평일에 차를 이용하지 않으세요?</S.WebThirdTitle>
+            <S.MobileThirdTitle>
+              <p>평일에 차를</p>
+              <p>이용하지 않으세요?</p>
+            </S.MobileThirdTitle>
             <S.ThirdImage src="/images/bodyImg2.svg" />
             <S.ThirdContents>
               <p>차를 사용하지 않는 날이 많다면!</p>
@@ -47,7 +55,11 @@ export default function IntroUI() {
         <S.LineHr />
         <S.FourthPage>
           <Fade cascade>
-            <S.FourthTitle>카픽키로 손쉽고 간편하게!</S.FourthTitle>
+            <S.WebFourthTitle>카픽키로 손쉽고 간편하게!</S.WebFourthTitle>
+            <S.MobileFourthTitle>
+              <p>카픽키로</p>
+              <p>손쉽고 간편하게!</p>
+            </S.MobileFourthTitle>
             <S.FourthBottomDiv>
               <S.FourthContents>
                 <p>스마트키를 사용해 키 분실 걱정이 없고</p>

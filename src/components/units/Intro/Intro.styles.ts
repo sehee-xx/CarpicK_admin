@@ -18,6 +18,10 @@ const marginDiv = styled.div`
 const pageDiv = styled(marginDiv)`
   height: 720px;
   display: flex;
+
+  @media ${breakPoints.smallSreen} {
+    height: 580px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -26,7 +30,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background-color: white;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     width: 100%;
     color: black;
   }
@@ -46,7 +50,7 @@ export const Header = styled.div`
   border-bottom: 1px solid #eeeeee;
   z-index: 1;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     width: 100%;
     height: 80px;
   }
@@ -61,18 +65,26 @@ export const HeaderContents = styled.div`
   gap: 15px;
   padding-left: 50px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     display: flex;
     flex-direction: row;
     padding-left: 30px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    padding-left: 20px;
   }
 `;
 
 export const LogoIcon = styled.img`
   height: 35px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     height: 30px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    height: 25px;
   }
 `;
 
@@ -81,8 +93,12 @@ export const LogoText = styled.div`
   font-weight: 600;
   color: #5d8bff;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     font-size: 25px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 24px;
   }
 `;
 
@@ -104,7 +120,7 @@ export const FirstPage = styled(pageDiv)`
   justify-content: center;
   align-items: center;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     font-size: 20px;
     font-weight: 700;
   }
@@ -133,7 +149,7 @@ export const WebFirstTitle = styled.div`
   animation: ${textclip} 1s linear infinite;
   display: inline-block;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     display: none;
   }
 `;
@@ -165,19 +181,12 @@ export const MobileFirstTitle = styled.div`
   padding-left: 20px;
   animation: ${textclip} 1s linear infinite;
 
-  @media (min-width: 767px) {
+  @media ${breakPoints.minMobile} {
     display: none;
   }
-`;
 
-export const FirstArrow = styled.img`
-  height: 30px;
-  position: absolute;
-  bottom: 15px;
-  transform: rotate(90deg);
-
-  @media ${breakPoints.mobile} {
-    height: 20px;
+  @media ${breakPoints.smallSreen} {
+    font-size: 20px;
   }
 `;
 
@@ -186,23 +195,42 @@ export const SecondPage = styled(pageDiv)`
   justify-content: center;
   padding: 0px 150px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     text-align: center;
     align-items: center;
     padding: 0px 50px;
   }
+
+  @media ${breakPoints.smallSreen} {
+    padding: 0px 20px;
+  }
 `;
 
-export const SecondTitle = styled.div`
+export const WebSecondTitle = styled.div`
   color: #5d8bff;
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 10px;
 
-  @media ${breakPoints.mobile} {
-    width: 100%;
-    font-size: 30px;
-    padding-bottom: 50px;
+  @media ${breakPoints.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MobileSecondTitle = styled.div`
+  width: 100%;
+  color: #5d8bff;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 10px;
+  padding-bottom: 50px;
+
+  @media ${breakPoints.minMobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 22px;
   }
 `;
 
@@ -212,7 +240,7 @@ export const SecondBottomDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -226,11 +254,15 @@ export const SecondContents = styled.div`
   letter-spacing: 3px;
   margin-top: 100px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     margin: 0px 0px;
     width: 100%;
     font-size: 15px;
     padding-bottom: 20px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 12px;
   }
 `;
 
@@ -239,9 +271,13 @@ export const SecondImage = styled.img`
   height: auto;
   max-width: 500px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     max-width: 350px;
     display: flex;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    max-width: 250px;
   }
 `;
 
@@ -250,23 +286,42 @@ export const ThirdPage = styled(pageDiv)`
   justify-content: center;
   align-items: center;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     text-align: center;
     align-items: center;
+    padding: 0px 50px;
+  }
+
+  @media ${breakPoints.smallSreen} {
     padding: 0px 20px;
   }
 `;
 
-export const ThirdTitle = styled.div`
+export const WebThirdTitle = styled.div`
   color: #5d8bff;
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 10px;
 
-  @media ${breakPoints.mobile} {
-    width: 100%;
-    font-size: 30px;
-    padding-bottom: 20px;
+  @media ${breakPoints.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MobileThirdTitle = styled.div`
+  width: 100%;
+  color: #5d8bff;
+  font-weight: 600;
+  letter-spacing: 10px;
+  font-size: 30px;
+  padding-bottom: 20px;
+
+  @media ${breakPoints.minMobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 22px;
   }
 `;
 
@@ -276,10 +331,14 @@ export const ThirdImage = styled.img`
   max-width: 350px;
   margin-top: 35px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     max-width: 300px;
     display: flex;
     padding-bottom: 50px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    max-width: 250px;
   }
 `;
 
@@ -292,11 +351,15 @@ export const ThirdContents = styled.div`
   letter-spacing: 5px;
   margin-top: 50px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     text-align: center;
     margin: 0px 0px;
     width: 100%;
     font-size: 15px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 12px;
   }
 `;
 
@@ -305,25 +368,43 @@ export const FourthPage = styled(pageDiv)`
   justify-content: center;
   padding: 0px 150px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     padding: 0px 50px;
     align-items: center;
     justify-content: center;
   }
+
+  @media ${breakPoints.smallSreen} {
+    padding: 0px 20px;
+  }
 `;
 
-export const FourthTitle = styled.div`
+export const WebFourthTitle = styled.div`
   color: #5d8bff;
   text-align: end;
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 10px;
 
-  @media ${breakPoints.mobile} {
-    text-align: center;
-    width: 100%;
-    font-size: 30px;
-    padding-bottom: 50px;
+  @media ${breakPoints.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MobileFourthTitle = styled.div`
+  width: 100%;
+  color: #5d8bff;
+  font-weight: 600;
+  letter-spacing: 10px;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 50px;
+
+  @media ${breakPoints.minMobile} {
+    display: none;
+  }
+  @media ${breakPoints.smallSreen} {
+    font-size: 22px;
   }
 `;
 
@@ -333,7 +414,7 @@ export const FourthBottomDiv = styled.div`
   justify-content: space-between;
   margin-top: 50px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     margin-top: 10px;
     flex-direction: column;
     align-items: center;
@@ -348,20 +429,27 @@ export const FourthContents = styled.div`
   color: #0a0a0a;
   letter-spacing: 3px;
 
-  @media ${breakPoints.mobile} {
-    width: 100%;
+  @media ${breakPoints.maxMobile} {
     font-size: 15px;
     padding-bottom: 20px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    font-size: 12px;
   }
 `;
 
 export const FourthImage = styled.img`
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
 
-  @media ${breakPoints.mobile} {
-    max-width: 400px;
+  @media ${breakPoints.maxMobile} {
     display: flex;
     padding-top: 50px;
+  }
+
+  @media ${breakPoints.smallSreen} {
+    max-width: 250px;
   }
 `;
 
@@ -418,7 +506,7 @@ export const Footer = styled.div`
   justify-content: center;
   background-color: #5b8dff;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     height: 80px;
   }
 `;
@@ -436,7 +524,6 @@ export const ButtonBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-right: 30px;
 `;
 
 export const DownLoadButton = styled.button`
@@ -454,7 +541,7 @@ export const DownLoadButton = styled.button`
   justify-content: center;
   cursor: pointer;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     max-width: 150px;
     height: 50px;
   }
@@ -464,7 +551,7 @@ export const ButtonImage = styled.img`
   width: 40px;
   height: 40px;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     width: 15px;
     height: 15px;
   }
@@ -475,7 +562,7 @@ export const ButtonText = styled.a`
   padding-left: 10px;
   color: black;
 
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.maxMobile} {
     font-size: 14px;
   }
 `;
