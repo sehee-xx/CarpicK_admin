@@ -52,7 +52,6 @@ export default function AdminPage() {
     setStatusSelect(event.target.value);
   };
 
-  console.log("this is data", data);
   return (
     <AdminUI
       data={data}

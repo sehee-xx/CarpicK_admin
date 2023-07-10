@@ -24,6 +24,7 @@ export const StatusSelect = styled.select`
   margin-right: 50px;
   text-align: center;
 `;
+
 export const HeaderText = styled.div`
   width: 100%;
   height: 100px;

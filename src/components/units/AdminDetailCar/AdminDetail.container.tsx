@@ -48,7 +48,6 @@ export default function AdminDetailCarPage() {
   const { data } = useQuery(FETCH_CAR_WITH_DELETED, {
     variables: { carId: router.query.carId },
   });
-  console.log("test data", data);
   const { data: carModel, refetch } = useQuery(FETCH_CAR_CATEGORY);
 
   useEffect(() => {
