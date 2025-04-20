@@ -65,4 +65,51 @@
 ---
 
 ## 🗂 디렉토리 구조 (예시)
+```
+CarpicK_Admin/
+├── .vscode/                  # VSCode 설정
+├── pages/                    # Next.js 라우팅 페이지
+├── public/                   # 정적 파일
+├── src/
+│   ├── commons/              # 공통 유틸리티 및 토큰 관련 함수
+│   │   ├── breakPoints.tsx
+│   │   ├── generated/
+│   │   ├── libraries/
+│   │   │   └── getAccessToken.ts
+│   │   ├── store/
+│   │   ├── styles/
+│   │   ├── types.ts
+│   │   └── globalStyles.ts
+│
+│   ├── components/           # 재사용 가능한 컴포넌트
+│   │   ├── commons/
+│   │   ├── apollo/
+│   │   ├── kakao-map/
+│   │   └── pagination/
+│   │       ├── Pagination.container.tsx
+│   │       ├── Pagination.presenter.tsx
+│   │       ├── Pagination.styles.ts
+│   │       └── Pagination.types.ts
+│
+│   ├── units/                # 기능 단위 페이지 구성
+│   │   ├── Admin/
+│   │   ├── AdminDetail/
+│   │   ├── AdminDetailCar/
+│   │   ├── AdminDetailRegistration/
+│   │   ├── AdminLogin/
+│   │   ├── Intro/
+│   │   └── Terms/
+│
+├── styles/                   # 글로벌 스타일 설정
+├── docker-compose.yml        # Docker 설정 파일
+├── Dockerfile
+├── tsconfig.json             # TypeScript 설정
+├── package.json
+├── yarn.lock
+├── README.md
+└── 기타 설정 파일들 (eslint, prettier 등)
+```
+
+
+
 
